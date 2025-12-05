@@ -1,34 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import Header from './components/Header';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="w-full overflow-x-hidden flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        {/* Contenido principal de la aplicación */}
+        <h1 className="text-3xl font-bold mb-6">Bienvenido a la página de Juancho Restrepo Cámara</h1>
+        <p className="mb-4">Tu futuro es nuestra prioridad.</p>
+        
+        {/* Contenido de ejemplo - puedes reemplazarlo con tus componentes */}
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">Contenido Principal</h2>
+          <p>Este es el contenido principal de tu aplicación. Aquí puedes agregar más componentes y secciones según necesites.</p>
+        </div>
+      </main>
+      <footer className="bg-gray-800 text-white py-6 mt-8">
+        <div className="container mx-auto px-4 text-center">
+          <p>© {new Date().getFullYear()} Juancho Restrepo Cámara. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+    </div>
   )
 }
 
