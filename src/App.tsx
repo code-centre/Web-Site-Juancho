@@ -1,6 +1,10 @@
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ContactCard from './components/ContactCard';
+
+// Dentro de tu componente:
+
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -19,6 +23,13 @@ function App() {
           <p>Este es el contenido principal de tu aplicación. Aquí puedes agregar más componentes y secciones según necesites.</p>
         </div>
       </main>
+      <div className="flex justify-between container">
+        {/* <ContactCard /> */}
+        <div className=" w-1/2 border-l-2 border-red-300">
+          <ContactCard />
+        </div>
+      </div>
+      
       <Footer />
     </div>
   )
