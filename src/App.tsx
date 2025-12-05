@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <div className="w-full overflow-x-hidden flex flex-col">
@@ -19,11 +19,7 @@ function App() {
           <p>Este es el contenido principal de tu aplicación. Aquí puedes agregar más componentes y secciones según necesites.</p>
         </div>
       </main>
-      <footer className="bg-gray-800 text-white py-6 mt-8">
-        <div className="container mx-auto px-4 text-center">
-          <p>© {new Date().getFullYear()} Juancho Restrepo Cámara. Todos los derechos reservados.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
