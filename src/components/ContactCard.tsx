@@ -4,17 +4,14 @@ import { TiDocumentText } from "react-icons/ti";
 
 const ContactCard: React.FC = () => {
   return (
-    <div className="w-full mx-auto bg-white rounded-lg shadow-lg overflow-hidden p-4">
+    <div className="w-full mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
       <div className="md:flex">
-        <div className="md:w-full p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Contactanos</h2>
+        <div className="md:w-full px-8 py-4">
+          <h2 className="text-2xl font-bold text-blue-900 mb-6 ">Contactanos</h2>
           
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 gap-6">
+          <form className="space-y-2">
+            <div className="grid grid-cols-1 gap-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Nombre completo
-                </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <FaUser className="text-gray-300" />
@@ -29,9 +26,6 @@ const ContactCard: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Correo electrónico
-                </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <FaEnvelope className="text-gray-300" />
@@ -46,9 +40,6 @@ const ContactCard: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                  Teléfono
-                </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <FaPhone className="text-gray-300" />
@@ -64,15 +55,11 @@ const ContactCard: React.FC = () => {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Mensaje
-                
-              </label>
               <div className="relative">
                 <textarea
                     id="message"
                     rows={4}
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Escribe tu mensaje aquí..."
                 ></textarea>
                 <div className="absolute left-3 top-3 text-gray-300">
