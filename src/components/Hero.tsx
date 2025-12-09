@@ -44,10 +44,11 @@ const Hero: React.FC = () => {
           <div className="lg:w-1/2 relative">
             <div className="bg-blue-900 rounded-3xl overflow-hidden h-96 lg:h-[32rem] w-full relative">
               {/* Imagen de fondo - reemplaza con tu imagen real */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-800 to-blue-600 opacity-90"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-800 to-blue-600 opacity-90">
+              </div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-white text-center p-8">
-                  <img src="/foto2.jpg" alt="fotojuancho" />
+                  <img src="/foto2.png" alt="fotojuancho" />
                 </div>
               </div>
             </div>
@@ -60,7 +61,7 @@ const Hero: React.FC = () => {
           <div className="bg-white rounded-xl shadow-lg p-6 flex items-center">
             <div className="bg-blue-100 p-4 rounded-full mr-4">
               <img 
-                src="/path-to-logo.png" 
+                src="/logocd.png" 
                 alt="Centro Democrático" 
                 className="h-12 w-12"
               />

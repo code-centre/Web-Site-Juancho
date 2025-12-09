@@ -1,13 +1,13 @@
 import React from 'react';
-import { FaSearch, FaUser } from 'react-icons/fa';
+// import { FaSearch, FaUser } from 'react-icons/fa';
 
 
 const Header: React.FC = () => {
   return (
-   <header className="w-full bg-white shadow-md py-0 px-0 border-2 border-black">
-    <div className="w-full flex justify-between items-center border-2 border-blue-600">
+   <header className="w-full bg-white shadow-md py-0 px-0">
+    <div className="w-full flex justify-between items-center">
         {/* Logo */}
-        <div className="border-2 border-yellow-600">
+        <div className="">
             <a href="/" className="flex items-center">
                 <img 
                 src="/logo-header.png"
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* Navegación */}
-        <nav className="md:mb-0 w-1/2 border-2 border-green-600">
+        {/* <nav className="md:mb-0 w-1/2 border-2 border-green-600">
           <ul className="flex space-x-16 justify-center">
             <li>
               <a href="/" className="text-gray-700 hover:text-red-600 ">Inicio</a>
@@ -33,10 +33,10 @@ const Header: React.FC = () => {
               <a href="/galeria" className="text-gray-700 hover:text-red-600 transition">Galería</a>
             </li>
           </ul>
-        </nav>
+        </nav> */}
 
-        <div className="flex justify-end w-1/2 items-center ml-8 space-x-8 border-2 border-red-600 py-4">
-          {/* Buscador */}
+        {/* <div className="flex justify-end w-1/2 items-center ml-8 space-x-8 border-2 border-red-600 py-4">
+          Buscador
           <div className="relative">
             <input
               type="text"
@@ -46,12 +46,12 @@ const Header: React.FC = () => {
             <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-900" />
           </div>
 
-          {/* Botón de Iniciar Sesión */}
+          Botón de Iniciar Sesión
           <button className="bg-red-600 text-white px-4 py-4 rounded-full rounded-r flex items-center space-x-2 hover:bg-red-700 transition">
             <FaUser />
             <span>Iniciar sesión</span>
           </button>
-        </div>
+        </div> */}
       </div>
     </header>
   );
