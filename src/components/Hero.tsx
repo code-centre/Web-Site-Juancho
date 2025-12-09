@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaBullhorn, FaCheck } from 'react-icons/fa';
+import {  FaBullhorn, FaCheck } from 'react-icons/fa';
 
 const Hero: React.FC = () => {
   return (
