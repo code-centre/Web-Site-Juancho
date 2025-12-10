@@ -4,7 +4,7 @@ import { FaInstagram, FaFacebook, FaTwitter, FaYoutube, FaPhone, FaEnvelope, FaM
 const Footer: React.FC = () => {
   return (
     <footer className="bg-blue-900 text-white pt-12 pb-12">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Logo y descripción */}
           <div className="space-y-4 flex justify-center">
