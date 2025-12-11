@@ -1,10 +1,10 @@
 import React from 'react';
-import { FaInstagram, FaFacebook, FaTwitter, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser } from 'react-icons/fa';
+// import { FaInstagram, FaFacebook, FaTwitter, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-blue-900 text-white pt-12 pb-12">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Logo y descripción */}
           <div className="space-y-4 flex justify-center">
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Enlaces rápidos */}
-          <div className='border-l-2 border-white pl-8'>
+          {/* <div className='border-l-2 border-white pl-8'>
             <h4 className="text-lg text-left font-semibold mb-4 ">Categorías</h4>
             <ul className="space-y-2 text-left">
               {[
@@ -37,10 +37,10 @@ const Footer: React.FC = () => {
                 </li>
                 ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Redes sociales */}
-          <div className='gap-16'>
+          {/* <div className='gap-16'>
             <h4 className="text-lg text-left font-semibold mb-8">Síguenos</h4>
             <div className="flex text-left space-x-4">
               <a href="#" className="text-2xl hover:text-blue-300 transition-colors">
@@ -56,10 +56,10 @@ const Footer: React.FC = () => {
                 <FaYoutube />
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* Contacto */}
-          <div className='text-left'>
+          {/* <div className='text-left'>
             <h4 className="text-lg font-semibold mb-4">Contacto</h4>
             <ul className="space-y-2 text-blue-200">
               <li className="flex items-center space-x-2">
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
                 <span>contacto@juanchorestrepo.com</span>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
