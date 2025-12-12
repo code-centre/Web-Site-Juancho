@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import { FaSearch, FaUser } from 'react-icons/fa';
 
 
 const Header: React.FC = () => {
   return (
    <header className="w-full bg-white shadow-md py-0 px-0">
-    <div className="w-full flex justify-between items-center">
+    <div className="w-full flex justify-start items-center">
         {/* Logo */}
         <div className="">
             <a href="/" className="flex items-center">
@@ -18,22 +19,22 @@ const Header: React.FC = () => {
         </div>
 
         {/* Navegación */}
-        {/* <nav className="md:mb-0 w-1/2 border-2 border-green-600">
+        <nav className="md:mb-0 w-1/2">
           <ul className="flex space-x-16 justify-center">
             <li>
-              <a href="/" className="text-gray-700 hover:text-red-600 ">Inicio</a>
+              <Link to="/" className="text-gray-700 hover:text-red-600">Inicio</Link>
             </li>
             <li>
-              <a href="sobremi" className="text-gray-700 hover:text-red-600 transition">Sobre el</a>
+              <Link to="/sobre-mi" className="text-gray-700 hover:text-red-600 transition">Sobre Mí</Link>
             </li>
             <li>
-              <a href="/proyectos" className="text-gray-700 hover:text-red-600 transition">Proyectos</a>
+              <Link to="/proyectos" className="text-gray-700 hover:text-red-600 transition">Proyectos</Link>
             </li>
             <li>
-              <a href="/galeria" className="text-gray-700 hover:text-red-600 transition">Galería</a>
+              <Link to="/galeria" className="text-gray-700 hover:text-red-600 transition">Galería</Link>
             </li>
           </ul>
-        </nav> */}
+        </nav>
 
         {/* <div className="flex justify-end w-1/2 items-center ml-8 space-x-8 border-2 border-red-600 py-4">
           Buscador
