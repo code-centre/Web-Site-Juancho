@@ -10,10 +10,12 @@ import Hero from './components/Hero';
 import GaleriaPage from './pages/GaleriaPage';
 import SobreMiPage from './pages/SobreMiPage';
 import ProyectosPage from './pages/ProyectosPage';
+import SocialSidebar from './components/SocialSidebar';
 
 function App() {
   return (
     <Router>
+      <SocialSidebar />
       <div className="w-full overflow-x-hidden flex flex-col min-h-screen p-8">
         <Header />
         <main className="flex-grow">
