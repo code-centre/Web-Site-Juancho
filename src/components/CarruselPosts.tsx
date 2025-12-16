@@ -1,6 +1,7 @@
 import React from 'react';
 import PostCard from './PostCard';
 
+
 interface Post {
   id: number;
   title: string;
@@ -40,7 +41,7 @@ const CarruselPosts: React.FC = () => {
     <div className="w-full py-4 px-12 border-r-2 border-gray-200 mr-4">
       <h2 className="text-3xl font-bold text-center mb-6">Últimos posts</h2>
       
-      <div className="grid grid-cols-2 gap-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
         {posts.map((post) => (
           <PostCard
             key={post.id}
@@ -59,7 +60,9 @@ const CarruselPosts: React.FC = () => {
           
         </button>
       </div>
+      
     </div>
+    
   );
 };
 

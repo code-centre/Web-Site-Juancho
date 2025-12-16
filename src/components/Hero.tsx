@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
         {/* <div className=" absolute top-2/3 left-3/4 transform -translate-x-1/2 -translate-y-1/3 w-[35%] h-[75%] rounded-full bg-white shadow-[0_0_25px_15px_rgba(0,0,0,0.3)]">
         </div> */}
         {/* Tarjetas inferiores */}
-        <div className=" absolute w-full top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/5 grid grid-cols-3 gap-16 z-40">
+        <div className="hidden md:grid absolute w-full top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/5 grid grid-cols-3 gap-16 z-40">
           {/* Tarjeta 1 */}
           <div className="my-6 mx-4 w-30% bg-white rounded-xl px-4 py-2 flex items-center shadow-[0_0_25px_15px_rgba(0,0,0,0.3)]">
             <div className="bg-blue-100 p-4 rounded-full mr-4">
