@@ -34,13 +34,13 @@ const Proyectos: React.FC = () => {
 
   const nextSlide = () => {
     setActiveIndex((prevIndex) => 
-      prevIndex === projects.length - 2 ? 0 : prevIndex + 2
+      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? projects.length - 2 : prevIndex - 2
+      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
     );
   };
 

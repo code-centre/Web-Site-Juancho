@@ -2,7 +2,7 @@ import React from 'react';
 
 const TextProyectos: React.FC = () => {
   return (
-    <div className="bg-blue-900 text-white p-8 h-full">
+    <div className="bg-blue-900 text-white p-8 h-full rounded-t-3xl lg:rounded-none">
       {/* <h2 className="text-4xl font-bold mb-6">Proyectos</h2> */}
       <div className="space-y-4">
         <p className="text-sm text-left">
