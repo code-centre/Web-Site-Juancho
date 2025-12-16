@@ -48,28 +48,32 @@ const Noticias = () => {
   };
 
   return (
-    <div className="w-full py-12 px-4 md:px-8 lg:px-16 bg-white">
+    <div className="w-full py-8 md:py-12 px-4 md:px-8 lg:px-16 bg-white">
       <div className="w-full mx-auto">
-        <div className="w-full flex gap-2">
+        {/* 1. Cambio de flex a flex-col (móvil) y md:flex-row (escritorio) */}
+        <div className="w-full flex flex-col md:flex-row gap-6 md:gap-2">
+          
           {/* Featured News - Left Side */}
-          <div className="w-1/2 rounded-lg overflow-hidden ml-8 ">
+          {/* 2. w-full en móvil, w-1/2 en escritorio. Eliminé ml-8 en móvil para centrarlo */}
+          <div className="w-full md:w-1/2 rounded-lg overflow-hidden md:ml-8">
             <div className="mb-4 text-left">
-              <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-2">Últimas noticias</h2>
-              <p className="text-lg text-gray-600">Noticias, visitas, entrevistas y servicios comunitario.</p>
+              {/* 3. Tamaño de texto ajustable */}
+              <h2 className="text-3xl md:text-5xl font-bold text-blue-900 mb-2">Últimas noticias</h2>
+              <p className="text-base md:text-lg text-gray-600">Noticias, visitas, entrevistas y servicios comunitario.</p>
               <div className="h-1 w-full bg-yellow-400 mt-2"></div>
             </div>
+            
             <div className="p-2 text-left">
               <p className="text-sm text-gray-700 mb-3">{newsItems[selectedNews].date}</p>
-              <h3 className="text-4xl font-bold mb-3">{newsItems[selectedNews].title}</h3>
+              {/* 4. Título más pequeño en móviles para que no rompa el diseño */}
+              <h3 className="text-2xl md:text-4xl font-bold mb-3">{newsItems[selectedNews].title}</h3>
               <p className="text-gray-700 mb-4">{newsItems[selectedNews].text}</p>
-              {/* <button className="text-blue-900 font-medium flex items-center">
-                Leer más <FaArrowRight className="ml-2 h-4 w-4" />
-              </button> */}
             </div>
           </div>
 
           {/* News Grid - Right Side */}
-          <div className="w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8 p-8">
+          {/* 5. w-full en móvil, p-0 o p-4 para no perder tanto espacio lateral */}
+          <div className="w-full md:w-1/2 grid grid-cols-2 gap-4 md:gap-8 p-0 md:p-8">
             {newsItems.map((item, index) => (
               <div 
                 key={item.id}
@@ -78,24 +82,23 @@ const Noticias = () => {
                   selectedNews === index ? 'bg-yellow-500' : 'bg-white'
                 }`}
               >
-                <div className="h-28 overflow-hidden">
-                    <img src={item.image} alt="" />
+                {/* 6. Altura de imagen fija para mantener uniformidad en el grid */}
+                <div className="h-32 md:h-28 overflow-hidden">
+                    <img src={item.image} alt="" className="w-full h-full object-cover" />
                 </div>
                 <div className="pl-4 py-2 text-left">
                   <p className="text-xs text-gray-700 mb-1">{item.date}</p>
-                  <h4 className="font-sm font-bold mb-1">{item.title}</h4>
+                  <h4 className="font-sm font-bold mb-1 line-clamp-1">{item.title}</h4>
                   <p className="text-xs text-gray-600 line-clamp-2 mb-2">{item.description}</p>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between pr-4 pb-2">
+                    <div /> {/* Espaciador */}
                     <a 
                       href={newsItems[index].link || '#'} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center justify-center w-8 h-8 rounded-full shadow-md border-2 border-red-500 hover:bg-red-100 transition-colors duration-200"
                       onClick={(e) => {
-                        if (!newsItems[index].link) {
-                          e.preventDefault();
-                          // Optional: Add a toast or alert here if you want to notify the user that the link is not available
-                        }
+                        if (!newsItems[index].link) e.preventDefault();
                       }}
                     >
                       <FaArrowRight className="h-4 w-4 text-red-500" />
