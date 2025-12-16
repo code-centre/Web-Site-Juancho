@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
       </div> */}
 
       {/* Contenido principal */}
-      <div className="container mx-auto px-4 pt-10 pb-16 relative z-0">
+      <div className="container mx-auto px-8 pt-4 pb-16 relative z-0">
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Sección de texto */}
           <div className="order-2 md:order-1 mb-10 text-left align-middle flex flex-col justify-center">
