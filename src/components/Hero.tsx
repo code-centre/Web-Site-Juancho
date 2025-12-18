@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-8 py-4 relative">
         <div className="flex flex-col lg:flex-row">
           {/* Sección de texto */}
-          <div className="text-left align-middle flex flex-col justify-center lg:w-2/5 order-2 lg:order-1 z-10">
+          <div className="text-left mx-8 md:mx-8 lg:mx-8 align-middle flex flex-col justify-center lg:w-2/5 order-2 lg:order-1 z-10">
             <h2 className='text-blue-900'>Conoce a</h2>
             <h1 className="text-5xl font-bold text-blue-900 mb-4">Juancho</h1>
             <h1 className="text-5xl font-bold text-blue-900 mb-4">Restrepo</h1>
@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Tarjetas inferiores */}
-        <div className="grid md:grid-cols-3 w-full container mx-auto z-[100] justify-between gap-8 py-8 relative">
+        <div className="grid md:grid-cols-3 w-full container mx-auto z-[100] justify-between gap-8 py-8 relative px-8 md:px-0">
           {/* Tarjeta 1 */}
           <div className="flex items-center bg-white rounded-xl px-4 py-2 shadow-[0_0_25px_15px_rgba(0,0,0,0.3)] gap-4 justify-center">
               <img 

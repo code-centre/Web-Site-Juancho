@@ -23,7 +23,7 @@ function App() {
             <Route path="/" element={
               <>
                 <Hero />
-                <div className="flex flex-col lg:flex-row container mx-auto py-4 gap-8 px-8">
+                <div className="flex flex-col lg:flex-row container mx-auto py-4 gap-8 px-10 md:px-8">
                   <div className="lg:w-3/5">
                     <CarruselPosts />
                   </div>
