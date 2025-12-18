@@ -48,18 +48,18 @@ const Noticias = () => {
   };
 
   return (
-    <div className="w-full py-8 md:py-12 px-4 md:px-8 lg:px-16 bg-white">
+    <div className="w-full py-4 px-4 bg-white">
       <div className="w-full mx-auto">
         {/* 1. Cambio de flex a flex-col (móvil) y md:flex-row (escritorio) */}
-        <div className="w-full flex flex-col md:flex-row gap-6 md:gap-2">
+        <div className="w-full flex flex-col lg:flex-row gap-6 lg:gap-2">
           
           {/* Featured News - Left Side */}
           {/* 2. w-full en móvil, w-1/2 en escritorio. Eliminé ml-8 en móvil para centrarlo */}
-          <div className="w-full md:w-1/2 rounded-lg overflow-hidden md:ml-8">
+          <div className="w-full lg:w-1/2 rounded-lg overflow-hidden lg:ml-8">
             <div className="mb-4 text-left">
               {/* 3. Tamaño de texto ajustable */}
-              <h2 className="text-3xl md:text-5xl font-bold text-blue-900 mb-2">Últimas noticias</h2>
-              <p className="text-base md:text-lg text-gray-600">Noticias, visitas, entrevistas y servicios comunitario.</p>
+              <h2 className="text-3xl lg:text-5xl font-bold text-blue-900 mb-2">Últimas noticias</h2>
+              <p className="text-base lg:text-lg text-gray-600">Noticias, visitas, entrevistas y servicios comunitario.</p>
               <div className="h-1 w-full bg-yellow-400 mt-2"></div>
             </div>
             
@@ -73,7 +73,7 @@ const Noticias = () => {
 
           {/* News Grid - Right Side */}
           {/* 5. w-full en móvil, p-0 o p-4 para no perder tanto espacio lateral */}
-          <div className="w-full md:w-1/2 grid grid-cols-2 gap-4 md:gap-8 p-0 md:p-8">
+          <div className="w-full lg:w-1/2 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 p-0 lg:p-8">
             {newsItems.map((item, index) => (
               <div 
                 key={item.id}

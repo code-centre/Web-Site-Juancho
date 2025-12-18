@@ -1,15 +1,20 @@
 const Quienes = () => {
   return (
-    <div className="py-4 px-4 md:px-8 lg:px-16 bg-white">
+    <div className="py-4 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Left Column - Image */}
-          <div className="w-full md:w-1/3 lg:w-2/5 flex flex-col items-center">
-            <div className="w-full max-w-xs rounded-lg overflow-hidden mb-4">
+          <div className="w-full lg:w-2/5 flex flex-col items-center">
+            <div className="w-full rounded-lg overflow-hidden mb-4">
               <img
-                src="/foto2.png" // Replace with actual image path
+                src="/juancho.jpg" // Replace with actual image path
                 alt="Juancho Restrepo"
                 className="w-full h-full object-cover"
+              />
+              <img
+                src="/logo-header.png" // Replace with actual image path
+                alt="Logo Juancho Restrepo"
+                className="w-full h-full object-cover mt-[-100px]"
               />
             </div>
           </div>

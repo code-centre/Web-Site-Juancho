@@ -11,74 +11,23 @@ import GaleriaPage from './pages/GaleriaPage';
 import SobreMiPage from './pages/SobreMiPage';
 import ProyectosPage from './pages/ProyectosPage';
 import SocialSidebar from './components/SocialSidebar';
-import {  FaBullhorn, FaCheck } from 'react-icons/fa';
 
 function App() {
   return (
     <Router>
       <SocialSidebar />
-      <div className="w-full overflow-x-hidden flex flex-col min-h-screen p-2 md:p-8">
+      <div className="w-full overflow-x-hidden flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={
               <>
                 <Hero />
-                <div className="hidden md:flex flex-col md:flex-row container mx-auto">
-                  <div className="w-3/5">
+                <div className="flex flex-col lg:flex-row container mx-auto py-4 gap-8 px-8">
+                  <div className="lg:w-3/5">
                     <CarruselPosts />
                   </div>
-                  <div className="w-2/5">
-                    <ContactCard />
-                  </div>
-                </div>
-                <div className="flex flex-col md:hidden container mx-0">
-                  <div className='flex'>
-                    <div className="w-1/2">
-                      <CarruselPosts />
-                    </div>
-                    <div className=" w-1/2">
-                      <div className="flex md:hidden w-full flex-col  gap-16 my-2">
-                      {/* Tarjeta 1 */}
-                      <div className="bg-white rounded-xl flex justify-center py-2 items-center shadow-[0_0_25px_15px_rgba(0,0,0,0.3)]">
-                        <div className="bg-blue-100 rounded-full">
-                          <img 
-                            src="/logocd.png" 
-                            alt="Centro Democrático" 
-                            className="h-12 w-12"
-                          />
-                        </div>
-                        <div className='text-left gap-0'>
-                          <h3 className="font-bold text-xs  text-blue-900">CENTRO</h3>
-                          <h4 className="font-bold text-xs  text-blue-900">DEMOCRÁTICO</h4>
-                          <p className="font-bold text-xs  text-red-700">Mano firme</p>
-                          <p className="font-bold text-xs text-red-700">Corazón grande</p>
-                        </div>
-                      </div>
-                      {/* Tarjeta 2 */}
-                      <div className="bg-white rounded-xl flex justify-center py-2 items-center shadow-[0_0_25px_15px_rgba(0,0,0,0.3)]">
-                        <div className="bg-red-100 p-4 rounded-full mr-4 text-red-600">
-                          <FaBullhorn size={24} />
-                        </div>
-                        <div className='text-left'>
-                          <h3 className="font-bold text-xs text-blue-900">ÚLTIMAS NOTICIAS</h3>
-                          <p className="text-xs text-gray-600">Mantente informado </p>
-                        </div>
-                      </div>
-                      {/* Tarjeta 3 */}
-                      <div className="bg-white rounded-xl flex justify-center py-2 items-center shadow-[0_0_25px_15px_rgba(0,0,0,0.3)]">
-                        <div className="bg-green-100 p-4 rounded-full mr-4 text-green-600">
-                          <FaCheck size={24} />
-                        </div>
-                        <div className='text-left'>
-                          <h3 className="font-bold text-blue-900">VOTA ASÍ</h3>
-                          <p className="text-sm text-gray-600">Sigue estos pasos para votar</p>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-                  <div className="w-full">
+                  <div className="lg:w-2/5">
                     <ContactCard />
                   </div>
                 </div>
