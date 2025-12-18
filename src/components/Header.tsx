@@ -1,8 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AuthModal from './authModal'; // Importa el componente AuthModal
+import { FaUser } from 'react-icons/fa';
+import { supabase } from '../lib/supabaseClient'; // Importa el cliente de Supabase
+// import type { User } from '@supabase/supabase-js'; // Cambia a 'import type'
+
+// Define el tipo localmente
+type UserType = import('@supabase/supabase-js').User;
+
+
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [user, setUser] = useState<UserType | null>(null); // Cambia a User | null
+
+  const openModal = () => {
+    console.log('Abriendo modal');
+    setIsModalOpen(true);
+  };
+  const closeModal = () => setIsModalOpen(false);
+
+  // Escuchar cambios en el estado de autenticación
+  useEffect(() => {
+    const getInitialUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      console.log('Usuario inicial:', user); // Agrega este log
+      setUser(user);
+    };
+  getInitialUser();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log('Evento de auth:', event, 'Sesión:', session); // Agrega este log
+      setUser(session?.user || null);
+    });
+
+    return () => authListener.subscription.unsubscribe();
+  }, []);
+
+  // Función para cerrar sesión
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+  };
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -50,6 +89,29 @@ const Header: React.FC = () => {
               </Link>
             ))}
           </nav>
+
+          {user ? (
+            // Si hay usuario, mostrar botón de cerrar sesión
+            <button 
+              onClick={handleLogout}
+              className="bg-red-600 text-white px-4 py-4 rounded-full rounded-r flex items-center space-x-2 hover:bg-red-700 transition"
+            >
+              <FaUser />
+              <span>Cerrar sesión</span>
+            </button>
+          ) : (
+            // Si no hay usuario, mostrar botón de iniciar sesión
+            <button 
+              onClick={openModal}
+              className="bg-red-600 text-white px-4 py-4 rounded-full rounded-r flex items-center space-x-2 hover:bg-red-700 transition"
+            >
+              <FaUser />
+              <span>Iniciar sesión</span>
+            </button>
+          )}
+
+          {/* Renderizamos el modal solo si no hay usuario */}
+          {!user && <AuthModal isOpen={isModalOpen} onClose={closeModal} />}
 
           {/* Mobile menu button */}
           <div className="md:hidden">
