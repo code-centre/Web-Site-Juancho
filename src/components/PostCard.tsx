@@ -31,8 +31,8 @@ const PostCard: React.FC<PostCardProps> = ({
         />
       </div>
       <div className="p-5 flex flex-col flex-grow text-left">
-        <p className="text-sm text-black mb-2">{date}</p>
-        <h3 className="text-md font-semibold text-blue-800 mb-3 line-clamp-2">{title}</h3>
+        <p className="text-xs md:text-sm text-black mb-2">{date}</p>
+        <h3 className="text-xs md:text-sm text-md font-semibold text-blue-800 mb-3 line-clamp-2">{title}</h3>
         <p className="text-gray-600 text-xs line-clamp-2 flex-grow">{excerpt}</p>
         <button 
           onClick={onReadMore}
