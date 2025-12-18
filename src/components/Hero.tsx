@@ -5,10 +5,10 @@ const Hero: React.FC = () => {
   return (
     <div className="relative">
       {/* Contenido principal */}
-      <div className="container mx-auto px-8 py-4 relative z-0">
+      <div className="container mx-auto px-8 py-4 relative">
         <div className="flex flex-col lg:flex-row">
           {/* Sección de texto */}
-          <div className="text-left align-middle flex flex-col justify-center lg:w-2/5 order-2 lg:order-1">
+          <div className="text-left align-middle flex flex-col justify-center lg:w-2/5 order-2 lg:order-1 z-10">
             <h2 className='text-blue-900'>Conoce a</h2>
             <h1 className="text-5xl font-bold text-blue-900 mb-4">Juancho</h1>
             <h1 className="text-5xl font-bold text-blue-900 mb-4">Restrepo</h1>
@@ -25,21 +25,22 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Sección de imagen */}
-          <div className="w-full lg:w-3/5 relative order-1 lg:order-2">
+          <div className="w-full lg:w-3/5 relative order-1 lg:order-2 z-0 py-4">
             <div className="rounded-3xl overflow-visible h-96 lg:h-[32rem] w-full relative">
               {/* Imagen de fondo - reemplaza con tu imagen real */}
-              <div className="absolute bg-gradient-to-r from-blue-800 to-blue-600 opacity-90 mx-auto h-[90%] w-[90%] rounded-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bg-gradient-to-r from-[#193658] to-[#193658] opacity-90 mx-auto h-[90%] w-[90%] rounded-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute bg-red-500 flex w-[90%] h-[200px] mx-auto bottom-0 left-1/2 transform -translate-x-1/2 border-t-8 border-white rounded-b-3xl"></div>
-              <div className="absolute bg-white flex rounded-full md:w-[350px] md:h-[350px] w-[250px] h-[250px] mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute flex items-center justify-center bottom-0 left-1/2 transform -translate-x-1/2 scale-110 w-[70%] md:w-[50%]">
-                <img src="/foto2.png" alt="fotojuancho" className="h-full w-full object-contain" />
+
+
+              <div className="absolute bg-white flex rounded-full w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] bottom-[-50px] lg:bottom-[-100px] left-1/2 transform -translate-x-1/2">
+                <img src="/foto2.png" alt="fotojuancho" className="w-[260px] md:w-[320px] lg:w-[480px] object-contain absolute bottom-10 left-1/2 transform -translate-x-1/2" />
               </div>
             </div>
           </div>
         </div>
 
         {/* Tarjetas inferiores */}
-        <div className="grid md:grid-cols-3 w-full container mx-auto z-40 justify-between gap-8 py-8">
+        <div className="grid md:grid-cols-3 w-full container mx-auto z-[100] justify-between gap-8 py-8 relative">
           {/* Tarjeta 1 */}
           <div className="flex items-center bg-white rounded-xl px-4 py-2 shadow-[0_0_25px_15px_rgba(0,0,0,0.3)] gap-4 justify-center">
               <img 

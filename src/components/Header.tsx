@@ -12,7 +12,7 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="w-full bg-white pt-2">
+    <header className="w-full pt-2 z-50">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -74,7 +74,7 @@ const Header: React.FC = () => {
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50 cursor-pointer"
               >
                 {link.label}
               </Link>
