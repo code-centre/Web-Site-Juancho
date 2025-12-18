@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [open]);
 
   const navLinks = [
     { to: '/', label: 'Inicio' },
@@ -12,8 +24,8 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="w-full bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className={`w-full pt-2 ${open ? 'z-[1001]' : 'z-50'} relative`}>
+      <div className="container mx-auto">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -46,7 +58,7 @@ const Header: React.FC = () => {
               aria-controls="mobile-menu"
               aria-expanded={open}
               onClick={() => setOpen((s) => !s)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-blue-700 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-inset border-2 border-blue-800 focus:ring-red-500"
+              className="inline-flex items-center justify-center p-3 rounded-md text-blue-700 hover:text-red-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500 transition-colors"
             >
               <span className="sr-only">Open main menu</span>
               {!open ? (
@@ -65,23 +77,51 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile menu, show/hide based on menu state */}
+      {/* Backdrop overlay */}
       {open && (
-        <div id="mobile-menu" className="md:hidden">
-          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 bg-white">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-[999] md:hidden transition-opacity"
+          onClick={() => setOpen(false)}
+        />
+      )}
+
+      {/* Mobile sidebar menu */}
+      <div
+        id="mobile-menu"
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-[1000] transform transition-transform duration-300 ease-in-out md:hidden ${
+          open ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Header with close button */}
+          <div className="flex items-center justify-between p-4 border-b">
+            <h2 className="text-lg font-bold text-blue-900">Menú</h2>
+            <button
+              onClick={() => setOpen(false)}
+              className="p-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+              aria-label="Close menu"
+            >
+              <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation links */}
+          <nav className="flex-1 px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50"
+                className="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-          </div>
+          </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 };

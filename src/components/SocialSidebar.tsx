@@ -4,7 +4,7 @@ import { FaInstagram, FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const SocialSidebar: React.FC = () => {
   return (
-    <div className="fixed left-0 top-2/3 transform -translate-y-1/2 z-50">
+    <div className="fixed left-0 top-2/3 transform -translate-y-1/2 z-[100]">
       <div className="flex flex-col items-center space-y-8 bg-yellow-400 rounded-r-xl py-8 px-4 shadow-lg">
         <a 
           href="https://instagram.com/tucuenta" 

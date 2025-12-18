@@ -2,11 +2,11 @@
 
 const VotaAsi = () => {
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center justify-start p-8">
+    <div className="bg-white flex flex-col items-center justify-start py-4 px-4">
       {/* Top Left Section */}
-      <div className="self-start mb-12 ml-4 md:ml-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-blue-900 text-left">Vota así</h1>
-        <div className="h-1 w-[500px] bg-yellow-400 mt-4"></div>
+      <div className="self-start mb-12 px-4 lg:px-12">
+        <h1 className="text-3xl lg:text-5xl font-bold text-blue-900 text-left">Vota así</h1>
+        <div className="h-1 bg-yellow-400 mt-4"></div>
       </div>
 
       {/* Main Content */}
@@ -17,10 +17,11 @@ const VotaAsi = () => {
           alt="Infografía de votación" 
           className="w-full h-auto max-h-[70vh] object-contain"
         /> */}
-        <div className="flex flex-col items-center justify-start">
-          <p className="text-gray-700 text-lg md:text-xl mb-2">Infografia de como se debe</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-800">votar por Juancho Restrepo</h2>
-        </div>
+        <img 
+          src="/infografia.png" 
+          alt="Infografía de votación" 
+          className="w-full h-auto max-h-[70vh] object-contain"
+        />
       </div>
     </div>
   );

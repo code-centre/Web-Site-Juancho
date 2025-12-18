@@ -4,10 +4,10 @@ import { TiDocumentText } from "react-icons/ti";
 
 const ContactCard: React.FC = () => {
   return (
-    <div className="w-full mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+    <div className="w-full mx-auto bg-white rounded-lg shadow-[0_0_10px_5px_rgba(0,0,0,0.1)] overflow-hidden">
       <div className="md:flex">
         <div className="md:w-full px-8 py-4">
-          <h2 className="text-2xl font-bold text-blue-900 mb-6 ">Contactanos</h2>
+          <h2 className="text-2xl font-bold text-blue-900 mb-6">Contactanos</h2>
           
           <form className="space-y-2">
             <div className="grid grid-cols-1 gap-4">

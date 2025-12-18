@@ -38,8 +38,8 @@ const CarruselPosts: React.FC = () => {
   };
 
   return (
-    <div className="w-full py-0 md:py-4 px-0 md:px-12 border-r-2 border-gray-200 mr-4">
-      <h2 className="text-xs md:text-3xl font-bold text-center mb-6">Últimos posts</h2>
+    <div className="w-full">
+      <h2 className="text-3xl font-bold text-center mb-6 text-blue-900 ">Últimos posts</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {posts.map((post, index) => (
