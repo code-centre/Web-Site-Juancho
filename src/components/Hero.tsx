@@ -3,7 +3,7 @@ import {  FaBullhorn, FaCheck } from 'react-icons/fa';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative min-h-scree">
+    <div className="relative min-h-screen">
       {/* Barra lateral izquierda con redes sociales */}
       {/* <div className="absolute left-0 top-0 h-full w-16 bg-yellow-400 flex flex-col items-center justify-center space-y-6 z-10">
         <a href="#" className="text-gray-800 hover:text-blue-600 transition-colors">
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
       </div> */}
 
       {/* Contenido principal */}
-      <div className="container mx-auto px-4 pt-20 pb-16 relative z-0">
+      <div className="container mx-auto px-4 pt-10 pb-16 relative z-0">
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Sección de texto */}
           <div className="order-2 md:order-1 mb-10 text-left align-middle flex flex-col justify-center">
@@ -53,10 +53,12 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
+        {/* <div className=" absolute top-2/3 left-3/4 transform -translate-x-1/2 -translate-y-1/3 w-[35%] h-[75%] rounded-full bg-white shadow-[0_0_25px_15px_rgba(0,0,0,0.3)]">
+        </div> */}
         {/* Tarjetas inferiores */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <div className=" absolute w-full top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/5 grid grid-cols-3 gap-16 z-40">
           {/* Tarjeta 1 */}
-          <div className="bg-white rounded-xl shadow-lg p-6 flex items-center">
+          <div className="my-6 mx-4 w-30% bg-white rounded-xl px-4 py-2 flex items-center shadow-[0_0_25px_15px_rgba(0,0,0,0.3)]">
             <div className="bg-blue-100 p-4 rounded-full mr-4">
               <img 
                 src="/logocd.png" 
@@ -64,29 +66,29 @@ const Hero: React.FC = () => {
                 className="h-12 w-12"
               />
             </div>
-            <div>
-              <h3 className="font-bold text-blue-900">CENTRO DEMOCRÁTICO</h3>
-              <p className="text-sm text-gray-600">Mano firme Corazón grande</p>
+            <div className='text-left gap-0'>
+              <h3 className="font-bold text-blue-900">CENTRO</h3>
+              <h4 className="font-bold text-blue-900">DEMOCRÁTICO</h4>
+              <p className="font-bold text-sm text-red-700">Mano firme</p>
+              <p className="font-bold text-sm text-red-700">Corazón grande</p>
             </div>
           </div>
-
           {/* Tarjeta 2 */}
-          <div className="bg-white rounded-xl shadow-lg p-6 flex items-center">
+          <div className="my-6 mx-4 w-30% bg-white rounded-xl px-4 py-2 flex items-center shadow-[0_0_25px_15px_rgba(0,0,0,0.3)]">
             <div className="bg-red-100 p-4 rounded-full mr-4 text-red-600">
               <FaBullhorn size={24} />
             </div>
-            <div>
+            <div className='text-left'>
               <h3 className="font-bold text-blue-900">ÚLTIMAS NOTICIAS</h3>
               <p className="text-sm text-gray-600">Mantente informado de nuestras actividades</p>
             </div>
           </div>
-
           {/* Tarjeta 3 */}
-          <div className="bg-white rounded-xl shadow-lg p-6 flex items-center">
+          <div className="my-6 mx-4 w-30% bg-white rounded-xl px-4 py-2 flex items-center shadow-[0_0_25px_15px_rgba(0,0,0,0.3)]">
             <div className="bg-green-100 p-4 rounded-full mr-4 text-green-600">
               <FaCheck size={24} />
             </div>
-            <div>
+            <div className='text-left'>
               <h3 className="font-bold text-blue-900">VOTA ASÍ</h3>
               <p className="text-sm text-gray-600">Sigue estos pasos para votar</p>
             </div>
