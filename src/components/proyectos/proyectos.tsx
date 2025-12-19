@@ -73,6 +73,11 @@ const Proyectos: React.FC = () => {
     );
   };
 
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+  };
+
   return (
     <div className=" px-4">
       <div className="max-w-6xl mx-auto">
@@ -102,7 +107,7 @@ const Proyectos: React.FC = () => {
                       className="w-full h-32  object-cover aspect-rectangle"
                     />
                     <div className="p-4">
-                      <p className="text-gray-500 text-xs text-left mb-2">{proyecto.created_at}</p>
+                      <p className="text-gray-500 text-xs text-left mb-2">{formatDate(proyecto.created_at)}</p>
                       <h4 className="text-sm font-bold text-left text-blue-900 mb-2">{proyecto.titulo}</h4>
                       <p className="text-gray-700 text-sm mb-4 text-left">{proyecto.intro}</p>
                       <div className="flex justify-start">

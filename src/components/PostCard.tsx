@@ -16,6 +16,12 @@ const PostCard: React.FC<PostCardProps> = ({
   excerpt, 
   onReadMore 
 }) => {
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+  };
+  
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-xl  h-full flex flex-col ">
       <div className="relative h-24">
@@ -31,7 +37,7 @@ const PostCard: React.FC<PostCardProps> = ({
         />
       </div>
       <div className="p-5 flex flex-col flex-grow text-left">
-        <p className="text-xs md:text-sm text-black mb-2">{date}</p>
+        <p className="text-xs md:text-sm text-black mb-2">{formatDate(date)}</p>
         <h3 className="text-xs md:text-sm text-md font-semibold text-blue-800 mb-3 line-clamp-2">{title}</h3>
         <p className="text-gray-600 text-xs line-clamp-2 flex-grow">{excerpt}</p>
         <button 
