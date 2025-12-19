@@ -26,14 +26,14 @@ const Hero: React.FC = () => {
       if (error) {
         console.error('Error fetching main_info:', error);
       } else if (data && data.length > 0) {
-        console.log('Datos de main_info:', data[0]);
+        
         setMainInfo(data[0]); // Almacena el primer elemento (asumiendo uno solo)
       }
     };
     fetchMainInfo();
   }, []);
 
-  console.log("mainInfo:", mainInfo)
+  
 
   return (
     <div className="relative">

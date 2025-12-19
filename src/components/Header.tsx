@@ -14,6 +14,7 @@ const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [user, setUser] = useState<UserType | null>(null); // Cambia a User | null
+  // const [eventx, setEventx] = useState();
 
   const openModal = () => {
     console.log('Abriendo modal');
@@ -25,7 +26,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const getInitialUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
-      console.log('Usuario inicial:', user); // Agrega este log
+      // console.log('Usuario inicial:', user); // Agrega este log
       setUser(user);
     };
   getInitialUser();

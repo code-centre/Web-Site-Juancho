@@ -1,36 +1,39 @@
-import React from 'react';
+import React, {  useState, useEffect } from 'react';
 import PostCard from './PostCard';
+import { supabase } from '../lib/supabaseClient'; // Importa el cliente de Supabase
+import { Link } from 'react-router-dom'; 
 
-
-interface Post {
+interface BlogType {
   id: number;
-  title: string;
-  date: string;
-  image: string;
-  excerpt: string;
-  category: string;
+  created_at: string;
+  titulo: string;
+  slug: string;
+  intro: string;
+  blog_pic: string;
+  blog_text: string | null;
+  author_id: string | null;
+  profiles: { full_name: string } | null; // Agrega esto para el join
 }
 
 const CarruselPosts: React.FC = () => {
-  // Datos de ejemplo - reemplaza con tus datos reales
-  const posts: Post[] = [
-    {
-      id: 1,
-      title: "Lorem ipsum dolor sit amet",
-      date: "25 de noviembre de 2023",
-      image: "/vite.svg", // Reemplaza con la ruta correcta de la imagen
-      excerpt: "Lorem ipsum dolor sit amet consectetur. Lacus velit ut urna vitae commodo arcu consequat feugiat sit.",
-      category: "Noticias"
-    },
-    {
-      id: 2,
-      title: "Segundo post de ejemplo",
-      date: "20 de noviembre de 2023",
-      image: "/vite.svg", // Reemplaza con la ruta correcta de la imagen
-      excerpt: "Otra descripción interesante sobre este post que muestra más contenido relevante para los lectores.",
-      category: "Actualidad"
-    },
-  ];
+  const [blogs, setblogs] = useState<BlogType[]>([]); // Estado para los datos
+  
+    useEffect(() => {
+      const fetchblogs = async () => {
+        const { data, error } = await supabase.from('blogs').select('*, profiles(full_name)');
+        if (error) {
+          console.error('Error fetching blogs:', error);
+        } else if (data && data.length > 0) {
+          // console.log('Datos de blogs:', data);
+          setblogs(data);
+        }
+      };
+      fetchblogs();
+    }, []);
+  
+    // console.log("blogs:", blogs)
+  
+  
 
   const handleReadMore = (postId: number) => {
     console.log(`Ver más del post ${postId}`);
@@ -42,27 +45,28 @@ const CarruselPosts: React.FC = () => {
       <h2 className="text-3xl font-bold text-center mb-6 text-blue-900 ">Últimos posts</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {posts.map((post, index) => (
-          <div 
-            key={post.id} 
+        {blogs.slice(0, 2).map((blog, index) => (
+          <div  
+            key={blog.id} 
             className={`${index > 0 ? 'hidden md:block' : 'block'}`}
           >
             <PostCard
-              title={post.title}
-              date={post.date}
-              image={post.image}
-              excerpt={post.excerpt}
-              onReadMore={() => handleReadMore(post.id)}
+              title={blog.titulo}
+              date={blog.created_at}
+              image={blog.blog_pic}
+              excerpt={blog.intro}
+              onReadMore={() => handleReadMore(blog.id)}
             />
           </div>
         ))}
       </div>
 
       <div className="hidden md:block text-center mt-12">
-        <button className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
-          Conoce más
-          
-        </button>
+        <Link to="/proyectos">
+          <button className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+            Conoce más
+          </button>
+        </Link>
       </div>
       
     </div>

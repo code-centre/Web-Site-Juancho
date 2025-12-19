@@ -1,46 +1,75 @@
-import React, { useState } from 'react';
+import React, {  useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { supabase } from '../../lib/supabaseClient'; // Importa el cliente de Supabase
+// import { Link } from 'react-router-dom';
 
+interface ProyectosType {
+  id: number;
+  created_at: string;
+  titulo: string;
+  slug: string;
+  intro: string;
+  blog_pic: string;
+  blog_text: string | null;
+  author_id: string | null;
+  profiles: { full_name: string } | null; // Agrega esto para el join
+}
 
 const Proyectos: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [proyectos, setproyectos] = useState<ProyectosType[]>([]); // Estado para los datos
+      
+        useEffect(() => {
+          const fetchproyects = async () => {
+            const { data, error } = await supabase.from('blogs').select('*, profiles(full_name)');
+            if (error) {
+              console.error('Error fetching proyects:', error);
+            } else if (data && data.length > 0) {
+              // console.log('Datos de proyectos:', data);
+              setproyectos(data);
+            }
+          };
+          fetchproyects();
+        }, []);
+      
+        // console.log("blogs:", blogs)
   // Sample project data
-  const projects = [
-    {
-      id: 1,
-      date: '25 de noviembre de 2025',
-      title: 'Lorem ipsum dolor sit amet',
-      description: 'Lorem ipsum dolor sit amet consectetur. Lacus velitt.'
-    },
-    {
-      id: 2,
-      date: '20 de noviembre de 2025',
-      title: 'Consectetur adipiscing elit',
-      description: 'Sed do eiusmod tempor incididunt ut magna aliqua.'
-    },
-    {
-      id: 3,
-      date: '15 de noviembre de 2025',
-      title: 'Sed do eiusmod tempor',
-      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
-    },
-    {
-      id: 4,
-      date: '10 de noviembre de 2025',
-      title: 'Proyecto 4',
-      description: 'Duis aute irure dolor in reprehenderit in voluptate dolore.'
-    }
-  ];
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     date: '25 de noviembre de 2025',
+  //     title: 'Lorem ipsum dolor sit amet',
+  //     description: 'Lorem ipsum dolor sit amet consectetur. Lacus velitt.'
+  //   },
+  //   {
+  //     id: 2,
+  //     date: '20 de noviembre de 2025',
+  //     title: 'Consectetur adipiscing elit',
+  //     description: 'Sed do eiusmod tempor incididunt ut magna aliqua.'
+  //   },
+  //   {
+  //     id: 3,
+  //     date: '15 de noviembre de 2025',
+  //     title: 'Sed do eiusmod tempor',
+  //     description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
+  //   },
+  //   {
+  //     id: 4,
+  //     date: '10 de noviembre de 2025',
+  //     title: 'Proyecto 4',
+  //     description: 'Duis aute irure dolor in reprehenderit in voluptate dolore.'
+  //   }
+  // ];
 
   const nextSlide = () => {
     setActiveIndex((prevIndex) => 
-      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+      prevIndex === proyectos.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+      prevIndex === 0 ? proyectos.length - 1 : prevIndex - 1
     );
   };
 
@@ -63,19 +92,19 @@ const Proyectos: React.FC = () => {
             </div>
           {/* Projects Container */}
           <div className="flex overflow-hidden w-3/4">
-            <div className="flex transition-transform duration-300" style={{ transform: `translateX(-${activeIndex * 25}%)` }}>
-              {projects.map((project) => (
-                <div key={project.id} className="w-[250px] flex-shrink-0 px-2">
+            <div className="flex transition-transform duration-300" style={{ transform: `translateX(-${activeIndex * 100/proyectos.length}%)` }}>
+              {proyectos.map((proyecto) => (
+                <div key={proyecto.id} className="w-[250px] flex-shrink-0 px-2">
                   <div className="bg-white rounded-lg shadow-xl overflow-hidden">
                     <img 
-                      src={`https://picsum.photos/seed/${project.id}400/300`} 
-                      alt={project.title}
+                      src={proyecto.blog_pic} 
+                      alt="atl"
                       className="w-full h-32  object-cover aspect-rectangle"
                     />
                     <div className="p-4">
-                      <p className="text-gray-500 text-xs text-left mb-2">{project.date}</p>
-                      <h4 className="text-sm font-bold text-left text-blue-900 mb-2">{project.title}</h4>
-                      <p className="text-gray-700 text-sm mb-4 text-left">{project.description}</p>
+                      <p className="text-gray-500 text-xs text-left mb-2">{proyecto.created_at}</p>
+                      <h4 className="text-sm font-bold text-left text-blue-900 mb-2">{proyecto.titulo}</h4>
+                      <p className="text-gray-700 text-sm mb-4 text-left">{proyecto.intro}</p>
                       <div className="flex justify-start">
                         <button className="w-7 h-7 rounded-full border-2 border-red-500 flex items-center justify-center hover:bg-red-50 transition-colors">
                           <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

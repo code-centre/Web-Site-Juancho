@@ -26,14 +26,14 @@ const SocialSidebar: React.FC = () => {
         if (error) {
           console.error('Error fetching main_info:', error);
         } else if (data && data.length > 0) {
-          console.log('Datos de main_info:', data[0]);
+          // console.log('Datos de main_info:', data[0]);
           setMainInfo(data[0]); // Almacena el primer elemento (asumiendo uno solo)
         }
       };
       fetchMainInfo();
     }, []);
   
-    console.log("mainInfo:", mainInfo)
+    // console.log("mainInfo:", mainInfo)
   return (
     <div className="fixed left-0 top-2/3 transform -translate-y-1/2 z-[100]">
       <div className="flex flex-col items-center space-y-8 bg-yellow-400 rounded-r-xl py-8 px-4 shadow-lg">
