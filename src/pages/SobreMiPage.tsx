@@ -9,8 +9,13 @@ const SobreMiPage: React.FC = () => {
     <div className="min-h-screen bg-white p-8">
       <div className="flex flex-col">
         <Quienes />
-        <Noticias />    
-        <VotaAsi />
+        <div id='noticias'>
+          <Noticias />
+        </div>
+        <div id='votaasi'>
+          <VotaAsi />
+        </div>   
+        
       </div>
     </div>
   );
