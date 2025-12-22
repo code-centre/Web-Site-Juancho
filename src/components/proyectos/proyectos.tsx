@@ -46,7 +46,7 @@ const Proyectos: React.FC = () => {
           fetchproyects();
           // Listener para cambios en el estado de autenticación
           const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-            console.log("evento galeria:", event)
+            console.log("evento blogs:", event)
             setUser(session?.user ?? null);
           });
       
@@ -67,7 +67,7 @@ const Proyectos: React.FC = () => {
         const uploadImage = async (file: File) => {
           const fileExt = file.name.split('.').pop();
           const fileName = `${Date.now()}.${fileExt}`;
-          const { data, error } = await supabase.storage.from('website_assets').upload(`blogs/${fileName}`, file);
+          const { error } = await supabase.storage.from('website_assets').upload(`blogs/${fileName}`, file);
           if (error) throw error;
           const { data: publicUrl } = supabase.storage.from('website_assets').getPublicUrl(`blogs/${fileName}`);
           return publicUrl.publicUrl;
@@ -80,7 +80,7 @@ const Proyectos: React.FC = () => {
             try {
               blogPicUrl = await uploadImage(selectedFile);
             } catch (error) {
-              alert('Error subiendo imagen: ' + error.message);
+              // alert('Error subiendo imagen: ' + error.message);
               return;
             }
           }
@@ -109,7 +109,7 @@ const Proyectos: React.FC = () => {
             try {
               blogPicUrl = await uploadImage(selectedFile);
             } catch (error) {
-              alert('Error subiendo imagen: ' + error.message);
+              // alert('Error subiendo imagen: ' + error.message);
               return;
             }
           }
@@ -132,14 +132,14 @@ const Proyectos: React.FC = () => {
         
 
         const handleDelete = async (id: number) => {
-          console.log('Intentando borrar blog con ID:', id, 'Usuario:', user?.id);
+          // console.log('Intentando borrar blog con ID:', id, 'Usuario:', user?.id);
           if (!confirm('¿Estás seguro de que quieres borrar este blog?')) return;
           const { error } = await supabase.from('blogs').delete().eq('id', id);
           if (error) {
-            console.error('Error borrando blog:', error);
+            // console.error('Error borrando blog:', error);
             alert('Error borrando blog: ' + error.message);
           } else {
-            console.log('Blog borrado exitosamente');
+            // console.log('Blog borrado exitosamente');
             fetchproyects();
           }
         };
