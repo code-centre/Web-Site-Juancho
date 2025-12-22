@@ -3,7 +3,7 @@ import { FaTimes } from 'react-icons/fa';
 import { signIn, signUp } from '../lib/auth';
 
 const AuthModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
-  const [isLogin, setIsLogin] = useState(true); // Estado para alternar entre Login y Register
+  const [isLogin] = useState(true); // Estado para alternar entre Login y Register
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
@@ -64,7 +64,7 @@ const AuthModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
           </button>
         </form>
 
-        <p className="mt-6 text-center text-gray-600">
+        {/* <p className="mt-6 text-center text-gray-600">
           {isLogin ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?'}
           <button 
             onClick={() => setIsLogin(!isLogin)} 
@@ -72,7 +72,7 @@ const AuthModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
           >
             {isLogin ? 'Regístrate aquí' : 'Inicia sesión'}
           </button>
-        </p>
+        </p> */}
       </div>
     </div>
   );
