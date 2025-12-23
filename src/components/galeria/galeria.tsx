@@ -40,7 +40,7 @@ const Galeria: React.FC = () => {
   const [user, setUser] = useState<any>(null);
   const [showModal, setShowModal] = useState(false); // Estado para el modal
   const [uploading, setUploading] = useState(false);
-  const [viewMode, setViewMode] = useState<'gallery' | 'instagram'>('instagram'); // Modo de visualización
+  // const [viewMode, setViewMode] = useState<'gallery' | 'instagram'>('instagram'); // Modo de visualización
   const INSTAGRAM_USERNAME = 'juanchorestrepohoyos';
   const INSTAGRAM_PROFILE_URL = `https://www.instagram.com/${INSTAGRAM_USERNAME}/`;
 

@@ -4,12 +4,12 @@ import './App.css';
 import './styles/fonts.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ContactCard from './components/ContactCard';
+// import ContactCard from './components/ContactCard';
 import CarruselPosts from './components/CarruselPosts';
 import Hero from './components/Hero';
 import GaleriaPage from './pages/GaleriaPage';
 import SobreMiPage from './pages/SobreMiPage';
-import ProyectosPage from './pages/ProyectosPage';
+// import ProyectosPage from './pages/ProyectosPage';
 import SocialSidebar from './components/SocialSidebar';
 
 function App() {
