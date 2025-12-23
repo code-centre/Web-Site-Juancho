@@ -35,44 +35,48 @@ const SocialSidebar: React.FC = () => {
   
     // console.log("mainInfo:", mainInfo)
   return (
-    <div className="fixed left-0 top-2/3 transform -translate-y-1/2 z-[100]">
-      <div className="flex flex-col items-center space-y-8 bg-yellow-400 rounded-r-xl py-8 px-4 shadow-lg">
+    <div className="fixed left-0 top-2/3 transform -translate-y-1/2 z-[100] animate-fade-in-left">
+      <div className="flex flex-col items-center space-y-8 bg-yellow-400 rounded-r-xl py-8 px-4 shadow-lg transition-all duration-300 hover:shadow-xl">
         <a 
-          href={mainInfo?.instagram_url || "https://instagram.com/tucuenta"} 
+          href={mainInfo?.instagram_url || "https://www.instagram.com/juanchorestrepohoyos/"} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-blue-900 hover:text-blue-700 transition-colors"
+          className="text-blue-900 hover:text-blue-700 transition-all duration-300 transform hover:scale-125 hover:-translate-x-1"
           aria-label="Instagram"
+          style={{ animationDelay: '0.1s', animationFillMode: 'both' }}
         >
           <FaInstagram size={24} />
         </a>
         <a 
-          href={mainInfo?.instagram_url || "https://instagram.com/tucuenta"} 
+          href={mainInfo?.facebook_url || "https://www.facebook.com/juanchorestrep0"} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-blue-900 hover:text-blue-700 transition-colors"
+          className="text-blue-900 hover:text-blue-700 transition-all duration-300 transform hover:scale-125 hover:-translate-x-1"
           aria-label="Facebook"
+          style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
         >
           <FaFacebook size={24} />
         </a>
         <a 
-          href={mainInfo?.instagram_url || "https://instagram.com/tucuenta"}  
+          href={mainInfo?.twitter_url || "https://x.com/juanchorestrep0"}  
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-blue-900 hover:text-blue-700 transition-colors"
+          className="text-blue-900 hover:text-blue-700 transition-all duration-300 transform hover:scale-125 hover:-translate-x-1"
           aria-label="Twitter"
+          style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
         >
           <FaTwitter size={24} />
         </a>
-        <a 
-          href={mainInfo?.instagram_url || "https://instagram.com/tucuenta"} 
+        {/* <a 
+          href={mainInfo?.youtube_url || "https://youtube.com/tucuenta"} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-blue-900 hover:text-blue-700 transition-colors"
+          className="text-blue-900 hover:text-blue-700 transition-all duration-300 transform hover:scale-125 hover:-translate-x-1"
           aria-label="YouTube"
+          style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
         >
           <FaYoutube size={24} />
-        </a>
+        </a> */}
       </div>
     </div>
   );

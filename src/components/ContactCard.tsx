@@ -27,10 +27,10 @@ const ContactCard: React.FC = () => {
   };
 
   return (
-    <div className="w-full mx-auto bg-white rounded-lg shadow-[0_0_10px_5px_rgba(0,0,0,0.1)] overflow-hidden">
+    <div className="w-full mx-auto bg-white rounded-lg shadow-[0_0_10px_5px_rgba(0,0,0,0.1)] overflow-hidden animate-fade-in-up transition-all duration-300 hover:shadow-[0_0_15px_8px_rgba(0,0,0,0.15)]">
       <div className="md:flex">
         <div className="md:w-full px-8 py-4">
-          <h2 className="text-2xl font-bold text-blue-900 mb-6">Contactanos</h2>
+          <h2 className="text-2xl font-bold text-blue-900 mb-6 animate-fade-in-up">Contactanos</h2>
           
           <form onSubmit={handleSubmit} className="space-y-2"> {/* Agrega onSubmit */}
             <div className="grid grid-cols-1 gap-4">
@@ -42,9 +42,9 @@ const ContactCard: React.FC = () => {
                   <input
                     type="text"
                     id="usuario"
-                    value={formData.usuario} // Agrega value
-                    onChange={handleChange} // Agrega onChange
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={formData.usuario}
+                    onChange={handleChange}
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 focus:bg-white focus:scale-105"
                     placeholder="Usuario"
                     required
                   />
@@ -59,9 +59,9 @@ const ContactCard: React.FC = () => {
                   <input
                     type="email"
                     id="email"
-                    value={formData.email} // Agrega value
-                    onChange={handleChange} // Agrega onChange
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 focus:bg-white focus:scale-105"
                     placeholder="E-mail"
                     required
                   />
@@ -76,9 +76,9 @@ const ContactCard: React.FC = () => {
                   <input
                     type="tel"
                     id="celular"
-                    value={formData.celular} // Agrega value
-                    onChange={handleChange} // Agrega onChange
-                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={formData.celular}
+                    onChange={handleChange}
+                    className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 focus:bg-white focus:scale-105"
                     placeholder="Celular"
                     required
                   />
@@ -91,9 +91,9 @@ const ContactCard: React.FC = () => {
                 <textarea
                   id="mensaje"
                   rows={4}
-                  value={formData.mensaje} // Agrega value
-                  onChange={handleChange} // Agrega onChange
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  value={formData.mensaje}
+                  onChange={handleChange}
+                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 bg-gray-200 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 focus:bg-white focus:scale-[1.02]"
                   placeholder="Escribe tu mensaje aquí..."
                   required
                 ></textarea>
@@ -106,7 +106,7 @@ const ContactCard: React.FC = () => {
             <div className="flex justify-center text-center w-full">
               <button
                 type="submit"
-                className="inline-flex w-full justify-center text-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex w-full justify-center text-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-900 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 Enviar
               </button>

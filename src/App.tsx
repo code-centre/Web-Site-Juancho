@@ -24,7 +24,7 @@ function App() {
               <>
                 <Hero />
                 <div className="flex flex-col container mx-auto py-4 gap-8 px-10 md:px-8">
-                  <div>
+                  <div className="animate-fade-in-up" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
                     <CarruselPosts />
                   </div>
                   {/* <div className="lg:w-2/5">

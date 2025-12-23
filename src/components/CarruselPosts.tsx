@@ -110,18 +110,25 @@ const CarruselPosts: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <h2 className="text-3xl font-bold text-center mb-6 text-blue-900">Punto de Opinion</h2>
+      <h2 className="text-3xl font-bold text-center mb-6 text-blue-900 animate-fade-in-up font-subtitle">Punto de Opinion</h2>
       {/* Sección de Posts de Instagram */}
       {loadingInstagram ? (
         <div className="text-center py-12">
           <div className="inline-block w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-          <p className="mt-4 text-gray-600">Cargando publicaciones de Instagram...</p>
+          <p className="mt-4 text-gray-600 font-body">Cargando publicaciones de Instagram...</p>
         </div>
       ) : instagramPosts.length > 0 ? (
         <div className="w-full flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl w-full px-4 place-items-center">
-            {instagramPosts.map((post) => (
-              <div key={post.id} className="flex justify-center">
+            {instagramPosts.map((post, index) => (
+              <div 
+                key={post.id} 
+                className="flex justify-center animate-fade-in-up"
+                style={{
+                  animationDelay: `${index * 0.15}s`,
+                  animationFillMode: 'both'
+                }}
+              >
                 <blockquote 
                   className="instagram-media" 
                   data-instgrm-captioned 
@@ -208,12 +215,12 @@ const CarruselPosts: React.FC = () => {
             ))}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-8 animate-fade-in-up" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
             <a
               href={INSTAGRAM_PROFILE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-colors shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               <FaInstagram size={20} />
               <span>Ver más en Instagram</span>

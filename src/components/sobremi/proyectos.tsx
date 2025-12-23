@@ -169,17 +169,17 @@ const Proyectos = () => {
     <div className="w-full py-4 px-4 bg-white">
       <div className="w-full mx-auto">
         {user && (
-          <button onClick={() => setShowEditModal(true)} className="mb-4 bg-blue-500 text-white px-4 py-2 rounded">
+          <button onClick={() => setShowEditModal(true)} className="mb-4 bg-blue-500 text-white px-4 py-2 rounded transition-all duration-300 hover:bg-blue-600 hover:scale-105 hover:shadow-lg">
             Editar proyectos
           </button>
         )}
         {showEditModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-              <h2 className="text-2xl font-bold mb-4">Gestionar Proyectos</h2>
+              <h2 className="text-2xl font-bold mb-4 font-subtitle">Gestionar Proyectos</h2>
               {(isCreating || editingNotice) && (
                 <div className="mb-6 p-4 border rounded-lg bg-gray-50">
-                  <h3 className="text-xl font-bold mb-4">{isCreating ? 'Crear Noticia' : 'Editar Noticia'}</h3>
+                  <h3 className="text-xl font-bold mb-4 font-subtitle">{isCreating ? 'Crear Noticia' : 'Editar Noticia'}</h3>
                   <form onSubmit={(e) => { e.preventDefault(); isCreating ? handleCreate() : handleUpdate(); }} className="space-y-4">
                     <input
                       type="text"
@@ -199,7 +199,7 @@ const Proyectos = () => {
                     />
                     {formData.notice_pic && (
                       <div className="mb-4">
-                        <p className="text-sm text-gray-600">Imagen actual:</p>
+                        <p className="text-sm text-gray-600 font-body">Imagen actual:</p>
                         <img src={formData.notice_pic} alt="Imagen actual" className="w-32 h-32 object-cover rounded" />
                       </div>
                     )}
@@ -235,7 +235,7 @@ const Proyectos = () => {
                   <div key={notice.id} className="flex items-center justify-between p-4 border rounded">
                     <div>
                       <h4 className="font-bold">{notice.titulo}</h4>
-                      <p className="text-sm text-gray-600">{notice.intro}</p>
+                      <p className="text-sm text-gray-600 font-body">{notice.intro}</p>
                     </div>
                     <div className="flex gap-2">
                       <button onClick={() => openEdit(notice)} className="bg-yellow-500 text-white px-3 py-1 rounded">
@@ -255,17 +255,17 @@ const Proyectos = () => {
           </div>
         )}
         <div className="w-full flex flex-col gap-6 lg:gap-2">
-          <div className="w-full rounded-lg overflow-hidden lg:ml-8">
+          <div className="w-full rounded-lg overflow-hidden lg:ml-8 animate-fade-in-up">
             <div className="mb-4 text-left">
-              <h2 className="text-3xl lg:text-5xl font-bold text-blue-900 mb-2">Proyectos</h2>
-              <p className="font-bold text-base lg:text-lg text-gray-600">Lo que voy a defender por el Atlántico</p>
-              <div className="h-1 w-full bg-yellow-400 mt-2"></div>
+              <h2 className="text-3xl lg:text-5xl font-bold text-blue-900 mb-2 animate-fade-in-up font-title" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>Proyectos</h2>
+              <p className="font-bold text-base lg:text-lg text-gray-600 animate-fade-in-up font-subtitle" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>Lo que voy a defender por el Atlántico</p>
+              <div className="h-1 w-full bg-yellow-400 mt-2 animate-fade-in-left" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}></div>
             </div>
             
             <div className="p-2 text-left">
-              <h3 className="text-gray-700 mb-3 text-2xl">Un Atlántico que se respeta</h3>
-              <p className="text-gray-700 mb-3">Creo en un Atlántico que alza la voz y defiende lo suyo. Desde la Cámara de Representantes trabajaré para que el Gobierno Nacional escuche al departamento, mire a nuestros municipios y respete sus necesidades.</p>
-              <p className="text-gray-700 mb-3">El Atlántico necesita una voz firme en el Congreso, que no guarde silencio cuando las cosas no están bien y que defienda a su gente con hechos.</p>
+              <h3 className="text-gray-700 mb-3 text-2xl animate-fade-in-up font-subtitle" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>Un Atlántico que se respeta</h3>
+              <p className="text-gray-700 mb-3 animate-fade-in-up font-body" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>Creo en un Atlántico que alza la voz y defiende lo suyo. Desde la Cámara de Representantes trabajaré para que el Gobierno Nacional escuche al departamento, mire a nuestros municipios y respete sus necesidades.</p>
+              <p className="text-gray-700 mb-3 animate-fade-in-up font-body" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>El Atlántico necesita una voz firme en el Congreso, que no guarde silencio cuando las cosas no están bien y que defienda a su gente con hechos.</p>
             </div>
           </div>
 
@@ -274,17 +274,21 @@ const Proyectos = () => {
               <div 
                 key={item.id}
                 onClick={() => handleNewsClick(index)}
-                className={`rounded-lg overflow-hidden shadow-xl cursor-pointer transition-all duration-200 hover:shadow-lg ${
+                className={`rounded-lg overflow-hidden shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-105 animate-fade-in-up ${
                   selectedNews === index ? 'bg-yellow-500' : 'bg-white'
                 }`}
+                style={{
+                  animationDelay: `${0.7 + index * 0.1}s`,
+                  animationFillMode: 'both'
+                }}
               >
                 <div className="h-32 md:h-28 overflow-hidden">
-                    <img src={item.notice_pic} alt="" className="w-full h-full object-cover" />
+                    <img src={item.notice_pic} alt="" className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
                 </div>
                 <div className="pl-4 py-2 text-left">
-                  <h4 className="font-bold mb-1 text-gray-700">{item.titulo}</h4>
-                  <p className="text-xs text-gray-600 mb-2">{item.intro}</p>
-                  <p className="text-xs text-gray-600 mb-2">{item.notice_text}</p>
+                  <h4 className="font-bold mb-1 text-gray-700 font-subtitle">{item.titulo}</h4>
+                  <p className="text-xs text-gray-600 mb-2 font-body">{item.intro}</p>
+                  <p className="text-xs text-gray-600 mb-2 font-body">{item.notice_text}</p>
                   <div className="flex items-center justify-between pr-4 pb-2">
                     <div />
                     {/* <a 

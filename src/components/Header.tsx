@@ -13,8 +13,17 @@ type UserType = import('@supabase/supabase-js').User;
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [user, setUser] = useState<UserType | null>(null); // Cambia a User | null
-  // const [eventx, setEventx] = useState();
+  const [user, setUser] = useState<UserType | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Detectar scroll para animación del header
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const openModal = () => {
     console.log('Abriendo modal');
@@ -64,29 +73,34 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className={`w-full pt-2 ${open ? 'z-[1001]' : 'z-50'} relative`}>
+    <header className={`w-full pt-2 ${open ? 'z-[1001]' : 'z-50'} relative transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
+          <div className="flex-shrink-0 animate-fade-in">
+            <Link to="/" className="flex items-center group">
               <img
                 src="/logo-header.png"
                 alt="Juancho Restrepo Cámara"
-                className="h-24 md:h-28 w-auto"
+                className="h-24 md:h-28 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
           </div>
 
           {/* Desktop navigation */}
           <nav className="hidden md:flex md:items-center md:space-x-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className="text-gray-700 hover:text-red-600 transition px-2 py-2"
+                className="text-gray-700 hover:text-red-600 transition-all duration-300 px-2 py-2 relative group animate-fade-in font-body"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  animationFillMode: 'both'
+                }}
               >
                 {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </nav>
@@ -95,19 +109,19 @@ const Header: React.FC = () => {
             // Si hay usuario, mostrar botón de cerrar sesión
             <button 
               onClick={handleLogout}
-              className="bg-red-600 text-white px-4 py-4 rounded-full rounded-r flex items-center space-x-2 hover:bg-red-700 transition"
+              className="bg-red-600 text-white px-4 py-4 rounded-full rounded-r flex items-center space-x-2 hover:bg-red-700 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in"
             >
               <FaUser />
-              <span>Cerrar sesión</span>
+              <span className="font-body">Cerrar sesión</span>
             </button>
           ) : (
             // Si no hay usuario, mostrar botón de iniciar sesión
             <button 
               onClick={openModal}
-              className="bg-red-600 text-white px-4 py-4 rounded-full rounded-r flex items-center space-x-2 hover:bg-red-700 transition"
+              className="bg-red-600 text-white px-4 py-4 rounded-full rounded-r flex items-center space-x-2 hover:bg-red-700 transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in"
             >
               <FaUser />
-              <span>Iniciar sesión</span>
+              <span className="font-body">Iniciar sesión</span>
             </button>
           )}
 
@@ -158,7 +172,7 @@ const Header: React.FC = () => {
         <div className="flex flex-col h-full">
           {/* Header with close button */}
           <div className="flex items-center justify-between p-4 border-b">
-            <h2 className="text-lg font-bold text-blue-900">Menú</h2>
+            <h2 className="text-lg font-bold text-blue-900 font-subtitle">Menú</h2>
             <button
               onClick={() => setOpen(false)}
               className="p-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
@@ -172,12 +186,15 @@ const Header: React.FC = () => {
 
           {/* Navigation links */}
           <nav className="flex-1 px-4 py-4 space-y-2">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors"
+                className="block px-4 py-3 rounded-md text-base font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-all duration-300 transform hover:translate-x-2 font-body"
+                style={{
+                  animation: `slideInRight 0.3s ease-out ${index * 0.1}s both`
+                }}
               >
                 {link.label}
               </Link>

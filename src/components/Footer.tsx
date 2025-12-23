@@ -3,16 +3,16 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-blue-900 text-white pt-12 pb-12">
+    <footer className="bg-blue-900 text-white pt-12 pb-12 animate-fade-in-up">
       <div className="mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Logo y descripción */}
-          <div className="space-y-4 flex justify-center">
-            <a href="/" className="flex items-center">
+          <div className="space-y-4 flex justify-center animate-scale-in">
+            <a href="/" className="flex items-center group">
                 <img 
                 src="/logo-footer.png"
                 alt="Juancho Restrepo Cámara"
-                className="h-30 w-auto" // Ajusta la altura según necesites
+                className="h-30 w-auto transition-transform duration-300 group-hover:scale-110"
                 />
             </a>
           </div>

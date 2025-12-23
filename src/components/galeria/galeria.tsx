@@ -261,13 +261,13 @@ const Galeria: React.FC = () => {
 
         {/* Vista de Instagram */}
         {viewMode === 'instagram' && (
-          <div className="mb-8">
-            <div className="text-center mb-6">
+          <div className="mb-8 animate-fade-in-up">
+            <div className="text-center mb-6 animate-fade-in-up">
               <a 
                 href={INSTAGRAM_PROFILE_URL}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold transition-all duration-300 hover:scale-110"
               >
                 <FaInstagram size={24} />
                 <span>@{INSTAGRAM_USERNAME}</span>
@@ -284,8 +284,15 @@ const Galeria: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Mostrar las primeras 12 publicaciones */}
               {instagramPosts.length > 0 ? (
-                instagramPosts.slice(0, 12).map((post) => (
-                  <div key={post.id} className="flex justify-center">
+                instagramPosts.slice(0, 12).map((post, index) => (
+                  <div 
+                    key={post.id} 
+                    className="flex justify-center animate-fade-in-up"
+                    style={{
+                      animationDelay: `${index * 0.1}s`,
+                      animationFillMode: 'both'
+                    }}
+                  >
                     <blockquote 
                       className="instagram-media" 
                       data-instgrm-captioned 

@@ -45,24 +45,25 @@ const Hero: React.FC = () => {
   
 
   return (
-    <div className="relative">
+    <div className="relative min-h-[600px]">
       {/* Contenido principal */}
       <div className="container mx-auto px-8 py-4 relative">
         <div className="flex flex-col lg:flex-row">
           {/* Sección de texto */}
-          <div className="text-left mx-8 md:mx-8 lg:mx-8 align-middle flex flex-col justify-center lg:w-2/5 order-2 lg:order-1 z-10">
-            <h2 className='text-blue-900'>Conoce a</h2>
-            <h1 className="text-5xl font-bold text-blue-900 mb-4">Juancho Restrepo</h1>
-            <h2 className="inline-block text-red-600 text-3xl font-bold py-1 border-b-">
+          <div className="text-left mx-8 md:mx-8 lg:mx-8 align-middle flex flex-col justify-center lg:w-2/5 order-2 lg:order-1 z-10 animate-fade-in-up">
+            <h2 className='text-blue-900 animate-fade-in font-subtitle' style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>Conoce a</h2>
+            <h1 className="text-5xl font-bold text-blue-900 mb-4 animate-fade-in-up font-subtitle" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>Juancho Restrepo</h1>
+            <h2 className="inline-block text-red-600 text-3xl font-bold py-1 border-b- animate-fade-in-up font-title" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
               CÁMARA DE REPRESENTANTES
             </h2>
-            <div className='h-1 sm:w-full md:w-3/5 bg-yellow-400 mb-2'></div>
-            <p className="text-gray-700 text-lg mb-4">
+            <div className='h-1 sm:w-full md:w-3/5 bg-yellow-400 mb-2 animate-fade-in-left' style={{ animationDelay: '0.4s', animationFillMode: 'both' }}></div>
+            <p className="text-gray-700 text-lg mb-4 animate-fade-in-up font-body" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
               Soy Juancho Restrepo, barranquillero, empresario y servidor público. <br /> Creo firmemente en un Atlántico que se respeta, que no se queda estancado ni olvidado, y que cuenta con una voz capaz de defenderlo con carácter y resultados.
             </p>
             <Link 
               to="/sobre-mi" 
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors w-fit inline-block"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 w-fit inline-block hover:scale-105 hover:shadow-lg animate-fade-in-up"
+              style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
             >
               Conoce más
             </Link>
@@ -104,7 +105,7 @@ const Hero: React.FC = () => {
                 {/* Imagen optimizada */}
                 {mainInfo?.image_url && (
                   <img 
-                    src={mainInfo.image_url} 
+                    src="/foto2.webp" 
                     alt="Juancho Restrepo" 
                     className={`w-[260px] md:w-[320px] lg:w-[480px] object-contain absolute bottom-10 left-1/2 transform -translate-x-1/2 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                     loading="lazy"
@@ -120,42 +121,42 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Tarjetas inferiores */}
-        <div className="grid md:grid-cols-3 w-full container mx-auto z-[100] justify-between gap-8 py-8 relative px-8 md:px-0 items-stretch">
+        <div className="grid md:grid-cols-3 w-full container mx-auto z-[2] justify-between gap-8 py-8 relative px-8 md:px-0 items-stretch">
           {/* Tarjeta 1 */}
-          <div className="flex items-center bg-white rounded-xl px-4 py-2 shadow-[0_0_15px_5px_rgba(0,0,0,0.3)] gap-4 justify-center h-full">
+          <div className="flex items-center bg-white rounded-xl px-4 py-2 shadow-[0_0_15px_5px_rgba(0,0,0,0.3)] gap-4 justify-center h-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_8px_rgba(0,0,0,0.4)] animate-fade-in-up" style={{ animationDelay: '0.7s', animationFillMode: 'both' }}>
               <img 
                 src="/logocd.png" 
                 alt="Centro Democrático" 
                 className="w-16 h-16"
               />
             <div className='text-left gap-0'>
-              <h3 className="font-bold text-blue-900">CENTRO</h3>
-              <h4 className="font-bold text-blue-900">DEMOCRÁTICO</h4>
-              <p className="font-bold text-sm text-red-700">Mano firme</p>
-              <p className="font-bold text-sm text-red-700">Corazón grande</p>
+              <h3 className="font-bold text-blue-900 font-subtitle">CENTRO</h3>
+              <h4 className="font-bold text-blue-900 font-subtitle">DEMOCRÁTICO</h4>
+              <p className="font-bold text-sm text-red-700 font-body">Mano firme</p>
+              <p className="font-bold text-sm text-red-700 font-body">Corazón grande</p>
             </div>
           </div>
           {/* Tarjeta 2 */}
-          <Link to="/sobre-mi#noticias" className="block h-full"> {/* Agrega Link aquí */}
-            <div className="bg-white rounded-xl px-4 py-2 flex items-center shadow-[0_0_15px_5px_rgba(0,0,0,0.3)] justify-center hover:shadow-lg transition-shadow cursor-pointer h-full">
+          <Link to="/sobre-mi#noticias" className="block h-full animate-fade-in-up" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
+            <div className="bg-white rounded-xl px-4 py-2 flex items-center shadow-[0_0_15px_5px_rgba(0,0,0,0.3)] justify-center hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer h-full">
               <div className="bg-red-100 p-4 rounded-full mr-4 text-red-600 flex-shrink-0">
                 <FaBullhorn size={24} />
               </div>
               <div className='text-left'>
-                <h3 className="font-bold text-blue-900">ÚLTIMAS NOTICIAS</h3>
-                <p className="text-sm text-gray-600">Mantente informado de nuestras actividades</p>
+                <h3 className="font-bold text-blue-900 font-subtitle">ÚLTIMAS NOTICIAS</h3>
+                <p className="text-sm text-gray-600 font-body">Mantente informado de nuestras actividades</p>
               </div>
             </div>
           </Link>
           {/* Tarjeta 3 */}
-          <Link to="/sobre-mi#votaasi" className="block h-full"> {/* Agrega Link con hash */}
-            <div className="bg-white rounded-xl px-4 py-2 flex items-center shadow-[0_0_15px_5px_rgba(0,0,0,0.3)] justify-center hover:shadow-lg transition-shadow cursor-pointer h-full">
+          <Link to="/sobre-mi#votaasi" className="block h-full animate-fade-in-up" style={{ animationDelay: '0.9s', animationFillMode: 'both' }}>
+            <div className="bg-white rounded-xl px-4 py-2 flex items-center shadow-[0_0_15px_5px_rgba(0,0,0,0.3)] justify-center hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer h-full">
               <div className="bg-green-100 p-4 rounded-full mr-4 text-green-600 flex-shrink-0">
                 <FaCheck size={24} />
               </div>
               <div className='text-left'>
-                <h3 className="font-bold text-blue-900">VOTA ASÍ</h3>
-                <p className="text-sm text-gray-600">Sigue estos pasos para votar</p>
+                <h3 className="font-bold text-blue-900 font-subtitle">VOTA ASÍ</h3>
+                <p className="text-sm text-gray-600 font-body">Sigue estos pasos para votar</p>
               </div>
             </div>
           </Link>
