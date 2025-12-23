@@ -59,7 +59,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { to: '/', label: 'Inicio' },
     { to: '/sobre-mi', label: 'Sobre Mí' },
-    { to: '/proyectos', label: 'Proyectos' },
+    // { to: '/proyectos', label: 'Proyectos' },
     { to: '/galeria', label: 'Galería' },
   ];
 

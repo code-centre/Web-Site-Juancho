@@ -23,19 +23,19 @@ function App() {
             <Route path="/" element={
               <>
                 <Hero />
-                <div className="flex flex-col lg:flex-row container mx-auto py-4 gap-8 px-10 md:px-8">
-                  <div className="lg:w-3/5">
+                <div className="flex flex-col container mx-auto py-4 gap-8 px-10 md:px-8">
+                  <div>
                     <CarruselPosts />
                   </div>
-                  <div className="lg:w-2/5">
+                  {/* <div className="lg:w-2/5">
                     <ContactCard />
-                  </div>
+                  </div> */}
                 </div>
               </>
             } />
             <Route path="/galeria" element={<GaleriaPage />} />
             <Route path="/sobre-mi" element={<SobreMiPage />} />
-            <Route path="/proyectos" element={<ProyectosPage />} />
+            {/* <Route path="/proyectos" element={<ProyectosPage />} /> */}
           </Routes>
         </main>
         <Footer />

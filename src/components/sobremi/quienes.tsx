@@ -22,10 +22,10 @@ const Quienes = () => {
           {/* Right Column - Content */}
           <div className="w-full md:w-2/3 lg:w-3/5 text-left">
             <h3 className="text-xl md:text-2xl text-blue-700 mb-0">
-              Quien es
+              ¿Quién es
             </h3>
             <h1 style={{ fontSize: '4rem' }} className="font-bold text-blue-900 mb-2">
-              Juancho Restrepo
+              Juancho Restrepo?
             </h1>
             <p className="text-lg text-red-600 font-medium mb-2">
               ASPIRANTE A LA CÁMARA DE REPRESENTANTES
@@ -34,18 +34,15 @@ const Quienes = () => {
             
             <div className="space-y-4 text-gray-700">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.<br />
-                Nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                pariatur. Excepteur sint occaecat cupidatat non proident. <br />
-                Sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
-                accusantium doloremque laudantium.
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere distinctio voluptates dolorem sequi ad architecto vero esse, dolor odio placeat quaerat temporibus deleniti provident cumque sint voluptatibus assumenda minus incidunt!
+                He trabajado tanto en el sector privado como en el público, especialmente en áreas de tecnología, innovación y gestión. Esa experiencia me ha permitido entender que el desarrollo del Atlántico no se logra con discursos, sino con oportunidades reales: empleo, inversión, seguridad y educación con propósito.
               </p>
+              <p>
+                Creo en una política cercana, transparente y firme. Una política donde el representante no desaparece después de las elecciones, sino que rinde cuentas, camina el territorio y enfrenta los problemas sin miedo.
+              </p>
+              <p>
+                Aspiro a la Cámara de Representantes porque Barranquilla y el Atlántico necesitan liderazgo, preparación y valentía para defender sus intereses ante el Gobierno Nacional y lograr cambios reales en la calidad de vida de la gente.
+              </p>
+              <p className="text-lg font-bold">El compromiso es con ustedes. ¡Porque su futuro importa!</p>
             </div>
           </div>
         </div>

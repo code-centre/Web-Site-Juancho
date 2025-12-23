@@ -13,7 +13,7 @@ interface NoticeType {
   profiles: { full_name: string } | null; // Agrega esto para el join
 }
 
-const Noticias = () => {
+const Proyectos = () => {
   const [selectedNews, setSelectedNews] = useState(0);
   const [newsItems, setNewsItems] = useState<NoticeType[]>([]);
   const [user, setUser] = useState<any>(null);
@@ -170,13 +170,13 @@ const Noticias = () => {
       <div className="w-full mx-auto">
         {user && (
           <button onClick={() => setShowEditModal(true)} className="mb-4 bg-blue-500 text-white px-4 py-2 rounded">
-            Editar noticias
+            Editar proyectos
           </button>
         )}
         {showEditModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-              <h2 className="text-2xl font-bold mb-4">Gestionar Noticias</h2>
+              <h2 className="text-2xl font-bold mb-4">Gestionar Proyectos</h2>
               {(isCreating || editingNotice) && (
                 <div className="mb-6 p-4 border rounded-lg bg-gray-50">
                   <h3 className="text-xl font-bold mb-4">{isCreating ? 'Crear Noticia' : 'Editar Noticia'}</h3>
@@ -228,7 +228,7 @@ const Noticias = () => {
                 </div>
               )}
               <button onClick={openCreate} className="mb-4 bg-green-500 text-white px-4 py-2 rounded">
-                Crear Nueva Noticia
+                Crear Nuevo proyecto
               </button>
               <div className="space-y-2">
                 {newsItems.map((notice) => (
@@ -254,26 +254,22 @@ const Noticias = () => {
             </div>
           </div>
         )}
-        <div className="w-full flex flex-col lg:flex-row gap-6 lg:gap-2">
-          <div className="w-full lg:w-1/2 rounded-lg overflow-hidden lg:ml-8">
+        <div className="w-full flex flex-col gap-6 lg:gap-2">
+          <div className="w-full rounded-lg overflow-hidden lg:ml-8">
             <div className="mb-4 text-left">
-              <h2 className="text-3xl lg:text-5xl font-bold text-blue-900 mb-2">Últimas noticias</h2>
-              <p className="text-base lg:text-lg text-gray-600">Noticias, visitas, entrevistas y servicios comunitario.</p>
+              <h2 className="text-3xl lg:text-5xl font-bold text-blue-900 mb-2">Proyectos</h2>
+              <p className="font-bold text-base lg:text-lg text-gray-600">Lo que voy a defender por el Atlántico</p>
               <div className="h-1 w-full bg-yellow-400 mt-2"></div>
             </div>
             
             <div className="p-2 text-left">
-              {newsItems.length > 0 && (
-                <>
-                  <p className="text-sm text-gray-700 mb-3">{formatDate(newsItems[selectedNews].created_at)}</p>
-                  <h3 className="text-2xl md:text-4xl font-bold mb-3">{newsItems[selectedNews].titulo}</h3>
-                  <p className="text-gray-700 mb-4">{newsItems[selectedNews].notice_text}</p>
-                </>
-              )}
+              <h3 className="text-gray-700 mb-3 text-2xl">Un Atlántico que se respeta</h3>
+              <p className="text-gray-700 mb-3">Creo en un Atlántico que alza la voz y defiende lo suyo. Desde la Cámara de Representantes trabajaré para que el Gobierno Nacional escuche al departamento, mire a nuestros municipios y respete sus necesidades.</p>
+              <p className="text-gray-700 mb-3">El Atlántico necesita una voz firme en el Congreso, que no guarde silencio cuando las cosas no están bien y que defienda a su gente con hechos.</p>
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 p-0 lg:p-8">
+          <div className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 p-0 lg:p-8">
             {newsItems.map((item, index) => (
               <div 
                 key={item.id}
@@ -286,12 +282,12 @@ const Noticias = () => {
                     <img src={item.notice_pic} alt="" className="w-full h-full object-cover" />
                 </div>
                 <div className="pl-4 py-2 text-left">
-                  <p className="text-xs text-gray-700 mb-1">{formatDate(item.created_at)}</p>
-                  <h4 className="font-sm font-bold mb-1 line-clamp-1">{item.titulo}</h4>
-                  <p className="text-xs text-gray-600 line-clamp-2 mb-2">{item.intro}</p>
+                  <h4 className="font-bold mb-1 text-gray-700">{item.titulo}</h4>
+                  <p className="text-xs text-gray-600 mb-2">{item.intro}</p>
+                  <p className="text-xs text-gray-600 mb-2">{item.notice_text}</p>
                   <div className="flex items-center justify-between pr-4 pb-2">
                     <div />
-                    <a 
+                    {/* <a 
                       href={'#'} 
                       target="_blank" 
                       rel="noopener noreferrer"
@@ -301,7 +297,7 @@ const Noticias = () => {
                       // }}
                     >
                       <FaArrowRight className="h-4 w-4 text-red-500" />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
@@ -313,4 +309,4 @@ const Noticias = () => {
   );
 };
 
-export default Noticias;
+export default Proyectos;

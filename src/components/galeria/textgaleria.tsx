@@ -2,7 +2,7 @@ import React from 'react';
 
 const TextGaleria: React.FC = () => {
   return (
-    <div className=" max-w-4xl mx-auto text-center mb-12 px-4">
+    <div className="mx-auto text-center mb-12 px-12 lg:px-4">
       <h2 className="text-4xl md:text-5xl font-bold text-blue-900 text-left mb-4">
         Galeria
       </h2>
@@ -13,9 +13,8 @@ const TextGaleria: React.FC = () => {
         <div className="w-full h-1 bg-yellow-400 mb-6"></div>
       </div>
       <p className="text-gray-700 text-base md:text-lg leading-relaxed text-left">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. 
-        Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus 
-        rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
+        El trabajo no se queda en el discurso. En este espacio se registran las visitas al territorio, los encuentros comunitarios y las acciones sociales que se desarrollan con la gente
+      para que la gente conozca mis propuestas y me siga apoyando en la Cámara de Representantes.
       </p>
     </div>
   );

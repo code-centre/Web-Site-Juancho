@@ -1,6 +1,6 @@
 // src/pages/GaleriaPage.tsx
 import React from 'react';
-import Noticias from '../components/sobremi/noticias';
+import Proyectos from '../components/sobremi/proyectos';
 import Quienes from '../components/sobremi/quienes';
 import VotaAsi from '../components/sobremi/votaasi';
 
@@ -9,8 +9,8 @@ const SobreMiPage: React.FC = () => {
     <div className="min-h-screen bg-white p-8">
       <div className="flex flex-col">
         <Quienes />
-        <div id='noticias'>
-          <Noticias />
+        <div id='proyectos'>
+          <Proyectos />
         </div>
         <div id='votaasi'>
           <VotaAsi />
