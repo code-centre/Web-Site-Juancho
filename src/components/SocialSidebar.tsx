@@ -1,6 +1,6 @@
 // src/components/SocialSidebar.tsx
 import React, {  useState, useEffect } from 'react';
-import { FaInstagram, FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 import { supabase } from '../lib/supabaseClient'; // Importa el cliente de Supabase
 
 interface MainInfoType {
@@ -67,16 +67,6 @@ const SocialSidebar: React.FC = () => {
         >
           <FaTwitter size={24} />
         </a>
-        {/* <a 
-          href={mainInfo?.youtube_url || "https://youtube.com/tucuenta"} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-blue-900 hover:text-blue-700 transition-all duration-300 transform hover:scale-125 hover:-translate-x-1"
-          aria-label="YouTube"
-          style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
-        >
-          <FaYoutube size={24} />
-        </a> */}
       </div>
     </div>
   );

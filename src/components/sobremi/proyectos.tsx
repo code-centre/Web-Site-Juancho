@@ -1,4 +1,4 @@
-import { FaArrowRight } from 'react-icons/fa';
+// import { FaArrowRight } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabaseClient'; // Importa el cliente de Supabase
 
@@ -158,11 +158,6 @@ const Proyectos = () => {
 
   const handleNewsClick = (index: number) => {
     setSelectedNews(index);
-  };
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
   };
 
   return (
