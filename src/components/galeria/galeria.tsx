@@ -193,31 +193,52 @@ const Galeria: React.FC = () => {
     }
   };
 
-  // Función para cargar el script de Instagram embeds
+  // Función para cargar el script de Instagram embeds y procesar cuando los posts cambien
   useEffect(() => {
     if (viewMode === 'instagram' && instagramPosts.length > 0) {
-      const script = document.createElement('script');
-      script.src = 'https://www.instagram.com/embed.js';
-      script.async = true;
-      script.defer = true;
+      const existingScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
       
-      // Solo agregar si no existe
-      if (!document.querySelector('script[src="https://www.instagram.com/embed.js"]')) {
-        document.body.appendChild(script);
+      // Si el script ya existe y está cargado, procesar inmediatamente
+      if (existingScript && window.instgrm) {
+        // Usar setTimeout para asegurar que el DOM esté actualizado
+        setTimeout(() => {
+          window.instgrm?.Embeds.process();
+        }, 100);
+        return;
       }
 
-      // Forzar re-renderizado de embeds después de cargar el script
-      script.onload = () => {
-        if (window.instgrm) {
-          window.instgrm.Embeds.process();
-        }
-      };
+      // Si el script no existe, cargarlo
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.src = 'https://www.instagram.com/embed.js';
+        script.async = true;
+        script.defer = true;
+        
+        script.onload = () => {
+          // Procesar después de que el script se cargue
+          setTimeout(() => {
+            if (window.instgrm) {
+              window.instgrm.Embeds.process();
+            }
+          }, 100);
+        };
 
-      return () => {
-        // No remover el script ya que puede ser usado por otros componentes
-      };
+        document.body.appendChild(script);
+      }
     }
-  }, [viewMode, instagramPosts.length]);
+  }, [viewMode, instagramPosts.length, instagramPosts]);
+
+  // Procesar embeds cuando el componente se monte o cuando cambien los posts
+  useEffect(() => {
+    if (viewMode === 'instagram' && instagramPosts.length > 0 && window.instgrm) {
+      // Esperar a que el DOM se actualice completamente
+      const timer = setTimeout(() => {
+        window.instgrm?.Embeds.process();
+      }, 300);
+
+      return () => clearTimeout(timer);
+    }
+  }, [viewMode, instagramPosts]);
 
   return (
     <div className="py-12 px-4 bg-gray-50">

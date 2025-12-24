@@ -88,25 +88,52 @@ const CarruselPosts: React.FC = () => {
   
   
 
-  // Cargar script de Instagram embeds
+  // Cargar script de Instagram embeds y procesar cuando los posts cambien
   useEffect(() => {
     if (instagramPosts.length > 0) {
-      const script = document.createElement('script');
-      script.src = 'https://www.instagram.com/embed.js';
-      script.async = true;
-      script.defer = true;
+      const existingScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
       
-      if (!document.querySelector('script[src="https://www.instagram.com/embed.js"]')) {
-        document.body.appendChild(script);
+      // Si el script ya existe y está cargado, procesar inmediatamente
+      if (existingScript && window.instgrm) {
+        // Usar setTimeout para asegurar que el DOM esté actualizado
+        setTimeout(() => {
+          window.instgrm?.Embeds.process();
+        }, 100);
+        return;
       }
 
-      script.onload = () => {
-        if (window.instgrm) {
-          window.instgrm.Embeds.process();
-        }
-      };
+      // Si el script no existe, cargarlo
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.src = 'https://www.instagram.com/embed.js';
+        script.async = true;
+        script.defer = true;
+        
+        script.onload = () => {
+          // Procesar después de que el script se cargue
+          setTimeout(() => {
+            if (window.instgrm) {
+              window.instgrm.Embeds.process();
+            }
+          }, 100);
+        };
+
+        document.body.appendChild(script);
+      }
     }
-  }, [instagramPosts.length]);
+  }, [instagramPosts.length, instagramPosts]);
+
+  // Procesar embeds cuando el componente se monte o cuando cambien los posts
+  useEffect(() => {
+    if (instagramPosts.length > 0 && window.instgrm) {
+      // Esperar a que el DOM se actualice completamente
+      const timer = setTimeout(() => {
+        window.instgrm?.Embeds.process();
+      }, 300);
+
+      return () => clearTimeout(timer);
+    }
+  }, [instagramPosts]);
 
   return (
     <div className="w-full flex flex-col items-center">
