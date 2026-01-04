@@ -1,5 +1,6 @@
 // import { FaArrowRight } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../../lib/supabaseClient'; // Importa el cliente de Supabase
 
 interface NoticeType {
@@ -259,8 +260,8 @@ const Proyectos = () => {
             
             <div className="p-2 text-left">
               <h3 className="text-gray-700 mb-3 text-2xl animate-fade-in-up font-subtitle" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>Un Atlántico que se respeta</h3>
-              <p className="text-gray-700 mb-3 animate-fade-in-up font-body" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>Creo en un Atlántico que alza la voz y defiende lo suyo. Desde la Cámara de Representantes trabajaré para que el Gobierno Nacional escuche al departamento, mire a nuestros municipios y respete sus necesidades.</p>
-              <p className="text-gray-700 mb-3 animate-fade-in-up font-body" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>El Atlántico necesita una voz firme en el Congreso, que no guarde silencio cuando las cosas no están bien y que defienda a su gente con hechos.</p>
+              <p className="text-gray-700 mb-3 animate-fade-in-up font-body" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>Creo en un <strong>Atlántico</strong> que alza la voz y defiende lo suyo. Desde la <strong>Cámara de Representantes</strong> trabajaré para que el Gobierno Nacional escuche al departamento del <strong>Atlántico</strong>, mire a nuestros municipios como <strong>Barranquilla</strong> y respete sus necesidades en <strong>Colombia</strong>.</p>
+              <p className="text-gray-700 mb-3 animate-fade-in-up font-body" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>El <strong>Atlántico</strong> necesita una voz firme en el <strong>Congreso de Colombia</strong>, que no guarde silencio cuando las cosas no están bien y que defienda a su gente con hechos. <Link to="/galeria" className="text-blue-600 hover:text-blue-800 underline">Conoce nuestro trabajo en el territorio</Link> y <Link to="/vota-asi" className="text-blue-600 hover:text-blue-800 underline">aprende cómo votar</Link>.</p>
             </div>
           </div>
 
@@ -278,7 +279,7 @@ const Proyectos = () => {
                 }}
               >
                 <div className="h-32 md:h-28 overflow-hidden">
-                    <img src={item.notice_pic} alt="" className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+                    <img src={item.notice_pic} alt={item.titulo || "Imagen del proyecto"} className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
                 </div>
                 <div className="pl-4 py-2 text-left">
                   <h4 className="font-bold mb-1 text-gray-700 font-subtitle">{item.titulo}</h4>

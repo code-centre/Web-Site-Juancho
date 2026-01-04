@@ -13,8 +13,7 @@ const TextGaleria: React.FC = () => {
         <div className="w-full h-1 bg-yellow-400 mb-6 animate-fade-in-left" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}></div>
       </div>
       <p className="text-gray-700 text-base md:text-lg leading-relaxed text-left animate-fade-in-up font-body" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-        El trabajo no se queda en el discurso. En este espacio se registran las visitas al territorio, los encuentros comunitarios y las acciones sociales que se desarrollan con la gente
-      para que la gente conozca mis propuestas y me siga apoyando en la Cámara de Representantes.
+        El trabajo no se queda en el discurso. En este espacio se registran las visitas al territorio del <strong>Atlántico</strong>, los encuentros comunitarios en <strong>Barranquilla</strong> y las acciones sociales que se desarrollan con la gente para que conozcan mis propuestas y me sigan apoyando en la <strong>Cámara de Representantes por Colombia</strong>. Cada imagen cuenta la historia del compromiso con las comunidades del departamento del Atlántico.
       </p>
     </div>
   );

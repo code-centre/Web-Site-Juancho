@@ -6,6 +6,21 @@
     <link rel="apple-touch-icon" href="/logocd.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <!-- Preload de fuentes críticas -->
+    <link rel="preload" href="/fonts/big_noodle_titling.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/Montserrat-Regular.otf" as="font" type="font/otf" crossorigin />
+    <link rel="preload" href="/fonts/OpenSans-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    
+    <!-- DNS Prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.instagram.com" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
     <!-- Primary Meta Tags -->
     <title>Juancho Restrepo - Candidato a la Cámara de Representantes por el Atlántico</title>
     <meta name="title" content="Juancho Restrepo - Candidato a la Cámara de Representantes por el Atlántico" />
@@ -20,9 +35,11 @@
     <meta property="og:url" content="https://juanchorestrepo.com/" />
     <meta property="og:title" content="Juancho Restrepo - Candidato a la Cámara de Representantes por el Atlántico" />
     <meta property="og:description" content="Juancho Restrepo, barranquillero, empresario y servidor público. Aspirante a la Cámara de Representantes por el Atlántico. Trabajando por un Atlántico que se respeta, con oportunidades reales y una voz firme en el Congreso." />
-    <meta property="og:image" content="/logo-header.png" />
+    <meta property="og:image" content="https://juanchorestrepo.com/logo-header.png" />
+    <meta property="og:image:secure_url" content="https://juanchorestrepo.com/logo-header.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo de Juancho Restrepo - Candidato a la Cámara de Representantes" />
     <meta property="og:locale" content="es_CO" />
     <meta property="og:site_name" content="Juancho Restrepo" />
     
@@ -31,7 +48,8 @@
     <meta property="twitter:url" content="https://juanchorestrepo.com/" />
     <meta property="twitter:title" content="Juancho Restrepo - Candidato a la Cámara de Representantes por el Atlántico" />
     <meta property="twitter:description" content="Juancho Restrepo, barranquillero, empresario y servidor público. Aspirante a la Cámara de Representantes por el Atlántico. Trabajando por un Atlántico que se respeta, con oportunidades reales y una voz firme en el Congreso." />
-    <meta property="twitter:image" content="/logo-header.png" />
+    <meta property="twitter:image" content="https://juanchorestrepo.com/logo-header.png" />
+    <meta property="twitter:image:alt" content="Logo de Juancho Restrepo - Candidato a la Cámara de Representantes" />
     
     <!-- Additional Meta Tags -->
     <meta name="theme-color" content="#193658" />
@@ -40,6 +58,56 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://juanchorestrepo.com/" />
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Juancho Restrepo",
+      "jobTitle": "Candidato a la Cámara de Representantes",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Atlántico",
+        "addressLocality": "Barranquilla",
+        "addressCountry": "CO"
+      },
+      "url": "https://juanchorestrepo.com",
+      "sameAs": [
+        "https://www.instagram.com/juanchorestrepohoyos/",
+        "https://www.facebook.com/juanchorestrep0",
+        "https://x.com/juanchorestrep0"
+      ],
+      "description": "Barranquillero, empresario y servidor público. Aspirante a la Cámara de Representantes por el Atlántico."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Juancho Restrepo",
+      "url": "https://juanchorestrepo.com",
+      "description": "Sitio web oficial de Juancho Restrepo, candidato a la Cámara de Representantes por el Atlántico",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Juancho Restrepo",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://juanchorestrepo.com/logo-header.png"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HP5P89VPKL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HP5P89VPKL');
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -34,13 +34,13 @@ const Quienes = () => {
             
             <div className="space-y-4 text-gray-700">
               <p className="animate-fade-in-up font-body" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
-                He trabajado tanto en el sector privado como en el público, especialmente en áreas de tecnología, innovación y gestión. Esa experiencia me ha permitido entender que el desarrollo del Atlántico no se logra con discursos, sino con oportunidades reales: empleo, inversión, seguridad y educación con propósito.
+                He trabajado tanto en el sector privado como en el público, especialmente en áreas de tecnología, innovación y gestión. Esa experiencia me ha permitido entender que el desarrollo del <strong>Atlántico</strong> no se logra con discursos, sino con oportunidades reales: empleo, inversión, seguridad y educación con propósito para <strong>Barranquilla</strong> y todos los municipios del departamento.
               </p>
               <p className="animate-fade-in-up font-body" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
-                Creo en una política cercana, transparente y firme. Una política donde el representante no desaparece después de las elecciones, sino que rinde cuentas, camina el territorio y enfrenta los problemas sin miedo.
+                Creo en una política cercana, transparente y firme. Una política donde el representante a la <strong>Cámara de Representantes</strong> no desaparece después de las elecciones, sino que rinde cuentas, camina el territorio del <strong>Atlántico</strong> y enfrenta los problemas sin miedo.
               </p>
               <p className="animate-fade-in-up font-body" style={{ animationDelay: '0.7s', animationFillMode: 'both' }}>
-                Aspiro a la Cámara de Representantes porque Barranquilla y el Atlántico necesitan liderazgo, preparación y valentía para defender sus intereses ante el Gobierno Nacional y lograr cambios reales en la calidad de vida de la gente.
+                Aspiro a la <strong>Cámara de Representantes por Colombia</strong> porque <strong>Barranquilla</strong> y el <strong>Atlántico</strong> necesitan liderazgo, preparación y valentía para defender sus intereses ante el Gobierno Nacional y lograr cambios reales en la calidad de vida de la gente. El compromiso es con las comunidades de todo el departamento.
               </p>
               <p className="text-lg font-bold animate-fade-in-up font-body" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>El compromiso es con ustedes. ¡Porque su futuro importa!</p>
             </div>

@@ -70,6 +70,7 @@ const Header: React.FC = () => {
     { to: '/sobre-mi', label: 'Sobre Mí' },
     // { to: '/proyectos', label: 'Proyectos' },
     { to: '/galeria', label: 'Galería' },
+    { to: '/vota-asi', label: 'Vota Así' },
   ];
 
   return (

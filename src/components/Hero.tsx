@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
   
 
   return (
-    <div className="relative min-h-[600px]">
+    <section className="relative min-h-[600px]" aria-label="Hero - Juancho Restrepo">
       {/* Contenido principal */}
       <div className="container mx-auto px-8 py-4 relative">
         <div className="flex flex-col lg:flex-row">
@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
             </h2>
             <div className='h-1 sm:w-full md:w-3/5 bg-yellow-400 mb-2 animate-fade-in-left' style={{ animationDelay: '0.4s', animationFillMode: 'both' }}></div>
             <p className="text-gray-700 text-lg mb-4 animate-fade-in-up font-body" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
-              Soy Juancho Restrepo, barranquillero, empresario y servidor público. <br /> Creo firmemente en un Atlántico que se respeta, que no se queda estancado ni olvidado, y que cuenta con una voz capaz de defenderlo con carácter y resultados.
+              Soy <strong>Juancho Restrepo</strong>, barranquillero, empresario y servidor público. <br /> Creo firmemente en un <strong>Atlántico</strong> que se respeta, que no se queda estancado ni olvidado, y que cuenta con una voz capaz de defenderlo con carácter y resultados. Como candidato a la <strong>Cámara de Representantes</strong>, trabajo por <strong>Barranquilla</strong> y todo el departamento del <strong>Atlántico</strong> en <strong>Colombia</strong>.
             </p>
             <Link 
               to="/sobre-mi" 
@@ -162,7 +162,7 @@ const Hero: React.FC = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

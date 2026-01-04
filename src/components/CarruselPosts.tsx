@@ -136,7 +136,7 @@ const CarruselPosts: React.FC = () => {
   }, [instagramPosts]);
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <section className="w-full flex flex-col items-center" aria-label="Punto de Opinión - Publicaciones de Instagram">
       <h2 className="text-3xl font-bold text-center mb-6 text-blue-900 animate-fade-in-up font-subtitle">Punto de Opinion</h2>
       {/* Sección de Posts de Instagram */}
       {loadingInstagram ? (
@@ -271,7 +271,7 @@ const CarruselPosts: React.FC = () => {
           </a>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 
